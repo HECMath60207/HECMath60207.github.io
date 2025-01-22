@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture06_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture06_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture06_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture06_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture06_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture06_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture06_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Vincent Grégoire">
+  <meta name="author" content="Saad Ali Khan">
+  <title>MATH60207 - Lecture 6</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture06_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture06_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="lecture06_files/libs/revealjs/dist/theme/quarto-bd69ca8dc37812ab781c15ce480bea9d.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="lecture06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture06_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture06_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture06_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="lecture06_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="lecture06_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="lecture06_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">MATH60207 - Lecture 6</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincent Grégoire 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:vincent.gregoire@hec.ca">vincent.gregoire@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Saad Ali Khan 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:saad-ali.khan@hec.ca">saad-ali.khan@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<div style="height: 3em;">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="review-of-concepts-in-statistics-and-probability">Review of Concepts in Statistics and Probability:</h4>
+<ul>
+<li>CDF and PDF</li>
+<li>Bayes’ Formula</li>
+<li>Estimators</li>
+<li>Classical hypothesis testing</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h4 id="empirical-distributions">Empirical distributions:</h4>
+<ul>
+<li>Goodness of fit tests</li>
+<li>Q-Q plots</li>
+<li>Kernel density estimation</li>
+</ul>
+</div></div>
+
+<aside><div>
+<p>Readings: <span class="citation" data-cites="baltagi_econometrics_2022">Baltagi (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Ch. 2.</p>
+</div></aside></section>
+<section id="cumulative-distribution-function" class="slide level2">
+<h2>Cumulative Distribution Function</h2>
+<div style="height: 2em;">
+
+</div>
+<p>The cumulative distribution function (CDF) of a random variable <span class="math inline">X</span> is:</p>
+<p><span class="math display">
+F\left(  x\right)  = \Pr\left( X&lt;x \right)
+</span></p>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li><span class="math inline">\Phi\left(  x\right)  \equiv~</span>the CDF of the standard normal distribution <span class="math inline">N(0,1)</span>. (No explicit closed form expression)</li>
+</ul>
+</section>
+<section id="normal-cdf---nmusigma" class="slide level2">
+<h2>Normal CDF - <span class="math inline">N(\mu,\sigma)</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="73" data-source-offset="-29"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 72;"><span id="cb1-73"><a href=""></a>Plot <span class="op">=</span> <span class="pp">require</span>(<span class="st">"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.11/dist/plot.umd.min.js"</span>)</span>
+<span id="cb1-74"><a href=""></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3"</span>)</span>
+<span id="cb1-75"><a href=""></a>jStat <span class="op">=</span> <span class="pp">require</span>(<span class="st">'https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js'</span>)</span>
+<span id="cb1-76"><a href=""></a></span>
+<span id="cb1-77"><a href=""></a><span class="co">// Create sliders with smaller text size</span></span>
+<span id="cb1-78"><a href=""></a>viewof mu <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb1-79"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb1-80"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb1-81"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{loc: }</span><span class="sc">\m</span><span class="vs">u`</span><span class="op">,</span></span>
+<span id="cb1-82"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb1-83"><a href=""></a>})</span>
+<span id="cb1-84"><a href=""></a></span>
+<span id="cb1-85"><a href=""></a>viewof sigma <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.1</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb1-86"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb1-87"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb1-88"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{scale: }</span><span class="sc">\s</span><span class="vs">igma`</span><span class="op">,</span></span>
+<span id="cb1-89"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb1-90"><a href=""></a>})</span>
+<span id="cb1-91"><a href=""></a></span>
+<span id="cb1-92"><a href=""></a><span class="co">// Arrange sliders side by side</span></span>
+<span id="cb1-93"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 50px;"&gt;</span></span>
+<span id="cb1-94"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof mu<span class="sc">}</span></span>
+<span id="cb1-95"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof sigma<span class="sc">}</span></span>
+<span id="cb1-96"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-6" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="98" data-source-offset="-643"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 97;"><span id="cb2-98"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-99"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb2-100"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb2-101"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"F(x)"</span></span>
+<span id="cb2-102"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb2-103"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb2-104"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span></span>
+<span id="cb2-105"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span></span>
+<span id="cb2-106"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb2-107"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-108"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(</span>
+<span id="cb2-109"><a href=""></a>      d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="fl">4.01</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">cdf</span>(x<span class="op">,</span> mu<span class="op">,</span> sigma)}))<span class="op">,</span></span>
+<span id="cb2-110"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>}</span>
+<span id="cb2-111"><a href=""></a>    )</span>
+<span id="cb2-112"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb2-113"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-114"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb2-115"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb2-116"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb2-117"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb2-118"><a href=""></a>  }</span>
+<span id="cb2-119"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-7" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-normal-cdf---nmusigma-1" class="slide level2">
+<h2>Inverse Normal CDF - <span class="math inline">N(\mu,\sigma)^{-1}</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="129" data-source-offset="-42"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 128;"><span id="cb3-129"><a href=""></a>viewof mu2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb3-130"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb3-131"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb3-132"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{loc: }</span><span class="sc">\m</span><span class="vs">u`</span><span class="op">,</span></span>
+<span id="cb3-133"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb3-134"><a href=""></a>})</span>
+<span id="cb3-135"><a href=""></a></span>
+<span id="cb3-136"><a href=""></a>viewof sigma2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.1</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb3-137"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb3-138"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb3-139"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{scale: }</span><span class="sc">\s</span><span class="vs">igma`</span><span class="op">,</span></span>
+<span id="cb3-140"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb3-141"><a href=""></a>})</span>
+<span id="cb3-142"><a href=""></a></span>
+<span id="cb3-143"><a href=""></a><span class="co">// Arrange sliders side by side</span></span>
+<span id="cb3-144"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 50px;"&gt;</span></span>
+<span id="cb3-145"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof mu2<span class="sc">}</span></span>
+<span id="cb3-146"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof sigma2<span class="sc">}</span></span>
+<span id="cb3-147"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="149" data-source-offset="-426"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 148;"><span id="cb4-149"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb4-150"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb4-151"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">2.5</span><span class="op">,</span> <span class="fl">2.5</span>]<span class="op">,</span></span>
+<span id="cb4-152"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span></span>
+<span id="cb4-153"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb4-154"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb4-155"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.001</span><span class="op">,</span> <span class="fl">0.999</span>]<span class="op">,</span></span>
+<span id="cb4-156"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"F(x)"</span></span>
+<span id="cb4-157"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb4-158"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb4-159"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(</span>
+<span id="cb4-160"><a href=""></a>      d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="fl">1.01</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(y <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> y<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">inv</span>(y<span class="op">,</span> mu2<span class="op">,</span> sigma2)}))<span class="op">,</span></span>
+<span id="cb4-161"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>}</span>
+<span id="cb4-162"><a href=""></a>    )</span>
+<span id="cb4-163"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb4-164"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-165"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb4-166"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb4-167"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb4-168"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb4-169"><a href=""></a>  }</span>
+<span id="cb4-170"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-density-function" class="slide level2">
+<h2>Probability Density Function</h2>
+<div style="height: 2em;">
+
+</div>
+<p>The probability density function (PDF) of a random variable <span class="math inline">X</span> is:</p>
+<p><span class="math display">
+\begin{align*}
+f\left(  x\right)  &amp; =\frac{dF\left(  x\right)  }{dx}\\
+\Rightarrow F\left(  x\right)  &amp; = \int_{-\infty}^{x} f\left(u\right)  du.
+\end{align*}
+</span></p>
+<div style="height: 2em;">
+
+</div>
+<p>For <span class="math inline">N(0,1)</span>, we have that <span class="math inline">\frac{d\Phi\left(  x\right)  }{dx}\equiv\phi\left(  x\right)  = \frac{1}{\sqrt{2\pi}}e^{\frac{-x^{2}}{2}}</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<p>More generally, <span class="math inline">\forall x \sim N(\mu, \sigma^2)</span>:</p>
+<p><span class="math display">
+f\left(  x\right) =\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-1}{2}\cdot\left(\frac{x-\mu}{\sigma}\right)^{2}}=\sigma^{-1}\cdot\phi\left(  \frac{x-\mu}{\sigma}\right)  
+</span></p>
+</section>
+<section id="normal-pdf" class="slide level2">
+<h2>Normal PDF</h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="217" data-source-offset="-41"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 216;"><span id="cb5-217"><a href=""></a>viewof mu3 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb5-218"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb5-219"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb5-220"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{loc: }</span><span class="sc">\m</span><span class="vs">u`</span><span class="op">,</span></span>
+<span id="cb5-221"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb5-222"><a href=""></a>})</span>
+<span id="cb5-223"><a href=""></a></span>
+<span id="cb5-224"><a href=""></a>viewof sigma3 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.1</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb5-225"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb5-226"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb5-227"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\t</span><span class="vs">ext{scale: }</span><span class="sc">\s</span><span class="vs">igma`</span><span class="op">,</span></span>
+<span id="cb5-228"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb5-229"><a href=""></a>})</span>
+<span id="cb5-230"><a href=""></a></span>
+<span id="cb5-231"><a href=""></a><span class="co">// Arrange sliders side by side</span></span>
+<span id="cb5-232"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 50px;"&gt;</span></span>
+<span id="cb5-233"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof mu3<span class="sc">}</span></span>
+<span id="cb5-234"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof sigma3<span class="sc">}</span></span>
+<span id="cb5-235"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="237" data-source-offset="-425"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 236;"><span id="cb6-237"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-238"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb6-239"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span></span>
+<span id="cb6-240"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"f(x)"</span></span>
+<span id="cb6-241"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb6-242"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb6-243"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span></span>
+<span id="cb6-244"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span></span>
+<span id="cb6-245"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb6-246"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb6-247"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(</span>
+<span id="cb6-248"><a href=""></a>      d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="dv">4</span><span class="op">,</span> <span class="fl">4.01</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">pdf</span>(x<span class="op">,</span> mu3<span class="op">,</span> sigma3)}))<span class="op">,</span></span>
+<span id="cb6-249"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>}</span>
+<span id="cb6-250"><a href=""></a>    )</span>
+<span id="cb6-251"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb6-252"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb6-253"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb6-254"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb6-255"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb6-256"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb6-257"><a href=""></a>  }</span>
+<span id="cb6-258"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="multivariate-distributions" class="slide level2">
+<h2>Multivariate Distributions</h2>
+<div style="height: 2em;">
+
+</div>
+<h4 id="densities">Densities:</h4>
+<ul>
+<li>Marginal: <span class="math inline">f(x)</span></li>
+<li>Joint: <span class="math inline">f(x, y)</span></li>
+<li>Conditional: <span class="math inline">f(x | y)</span></li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<div class="fragment custom blur">
+<h4 id="relationship-between-the-marginal-and-joint">Relationship between the marginal and joint:</h4>
+<p><span class="math display">
+f\left(  x\right)  =\int_{-\infty}^{\infty}f\left(  x,y\right)  dy
+</span></p>
+<p>If <span class="math inline">x</span> and <span class="math inline">y</span> are independent, then:</p>
+<p><span class="math display">
+f\left(  x,y\right)  =f_{x}\left(x\right)  \cdot f_{y}\left(  y\right)
+</span></p>
+</div>
+</section>
+<section id="fx-fy-and-fxy" class="slide level2" data-transition="fade-out slide-in">
+<h2><span class="math inline">f(x)</span>, <span class="math inline">f(y)</span>, and <span class="math inline">f(x,y)</span></h2>
+<div id="a8ed4ebf" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="604" height="608"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fy-x-40" class="slide level2" data-transition="fade-out fade-in">
+<h2><span class="math inline">f(y | x = 40)</span></h2>
+<div id="9d7cc43c" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="604" height="608"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fx-y-20" class="slide level2" data-transition="fade-in slide-out">
+<h2><span class="math inline">f(x | y = 20)</span></h2>
+<div id="beea4fbf" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="604" height="608"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bayes-formula" class="slide level2">
+<h2>Bayes’ Formula</h2>
+<div style="height: 2em;">
+
+</div>
+<p>This formula relates the conditional, marginal, and joint densities. Denote <span class="math inline">X</span> and <span class="math inline">Y</span> as two random variables. For any realizations <span class="math inline">x \in X</span> and <span class="math inline">y \in Y</span>:</p>
+<p><span class="math display">
+f\left(x|y\right)=\frac{f\left( x,y\right)}{f\left(y\right)}\qquad\text{or\qquad}f\left( x|y\right) \cdot f\left( y\right) = f\left(x,y\right)
+</span></p>
+<div style="height: 1em;">
+
+</div>
+<p>Which implies (among other things):</p>
+<p><span class="math display">
+f\left(  x|y\right)  \cdot f\left(  y\right)  =f\left(  x,y\right)=f\left(y,x\right)=f\left(y|x\right)\cdot f\left(x\right)
+</span></p>
+<div style="height: 2em;">
+
+</div>
+<p>The conditional probability is used to update our knowledge. The above formulas are written for densities of continuous variables. For discrete variables, replace densities with probabilities.</p>
+</section>
+<section id="bayes-formula---example" class="slide level2">
+<h2>Bayes’ Formula - Example</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p>The arrival of financial news can:</p>
+<ul>
+<li>Increase volatility of market returns</li>
+<li>Increase traded volume</li>
+<li>Increase transaction costs</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<p>Financial news can be modeled as an indicator (dummy) variable with two realizations:</p>
+<p><span class="math display">
+\begin{aligned}
+\mathcal{I}_{News}=
+\begin{cases}
+1, &amp; \text{if news arrives} \\
+0, &amp; \text{if no news arrives} \\
+\end{cases}
+\end{aligned}
+</span></p>
+</div>
+<div class="fragment custom blur">
+<p>Assume market volatility has two states<sup>1</sup>, high (<span class="math inline">H</span>) and low (<span class="math inline">L</span>): <span class="math display">
+\begin{aligned}
+\sigma=
+\begin{cases}
+\sigma_{H}, &amp; \text{if} \ \sigma&gt;5 \\
+\sigma_{L}, &amp; \text{if} \ \sigma \le 5 \\
+\end{cases}
+\end{aligned}
+</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>The distribution of market volatility can be better approximated as a log-normal distribution. For simplicity we are assuming that volatility has a discrete distribution.</p></li></ol></aside></section>
+<section class="slide level2">
+
+
+<img data-src="figures/RavenPack.png" class="r-stretch"></section>
+<section id="marginal-distributions" class="slide level2">
+<h2>Marginal Distributions</h2>
+<div style="height: 2em;">
+
+</div>
+<p><strong>Approximating marginal distributions of news and volatility from data:</strong></p>
+<div style="height: 1em;">
+
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Days</th>
+<th>Count</th>
+<th>Fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>News</td>
+<td>761</td>
+<td>0.165</td>
+</tr>
+<tr class="even">
+<td>No-news</td>
+<td>3,849</td>
+<td>0.835</td>
+</tr>
+<tr class="odd">
+<td>High volatility</td>
+<td>1,432</td>
+<td>0.311</td>
+</tr>
+<tr class="even">
+<td>Low volatility</td>
+<td>3,178</td>
+<td>0.689</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>4,610</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<div style="height: 2em;">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">
+\begin{aligned}
+\mathcal{I}_{News}=
+\begin{cases}
+1, &amp; \text{with prob. 0.165} \\
+0, &amp; \text{with prob. 0.835} \\
+\end{cases}
+\end{aligned}
+</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">
+\begin{aligned}
+\sigma=
+\begin{cases}
+\sigma_{H}, &amp; \text{with prob. 0.311} \\
+\sigma_{L}, &amp; \text{with prob. 0.689 } \\
+\end{cases}
+\end{aligned}
+</span></p>
+</div></div>
+</section>
+<section id="joint-distribution" class="slide level2">
+<h2>Joint Distribution</h2>
+<div style="height: 1em;">
+
+</div>
+<p><strong>Joint distribution of news and volatility</strong><sup>1</sup>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Days</th>
+<th>Count</th>
+<th>Fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>News and high vol.</td>
+<td>284</td>
+<td>0.062</td>
+</tr>
+<tr class="even">
+<td>News and low vol.</td>
+<td>477</td>
+<td>0.103</td>
+</tr>
+<tr class="odd">
+<td>No-news and high vol.</td>
+<td>1,148</td>
+<td>0.249</td>
+</tr>
+<tr class="even">
+<td>No-news and low vol.</td>
+<td>2,701</td>
+<td>0.586</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>4,610</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<div style="height: 1.5em;">
+
+</div>
+<p><span class="math display">
+\{\sigma, \mathcal{I}_{News}\} =
+\begin{cases}
+\{\sigma_{H}, 1\}, &amp; \text{with probability: 0.062} \\
+\{\sigma_{L}, 1\}, &amp; \text{with probability: 0.103} \\
+\{\sigma_{H}, 0\}, &amp; \text{with probability: 0.249} \\
+\{\sigma_{L}, 0\}, &amp; \text{with probability: 0.586}
+\end{cases}
+</span></p>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>The joint distribution is discrete with probability mass on four points.</p></li></ol></aside></section>
+<section id="estimating-probabilities" class="slide level2">
+<h2>Estimating Probabilities</h2>
+<div style="height: 1.5em;">
+
+</div>
+<p>Given that we observe <span class="math inline">\mathcal{I}_{News}=1</span> we would like to compute the probability of <span class="math inline">\sigma=\sigma_{H}</span>: <span class="math display">
+\begin{aligned}
+\mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=1) &amp; =  \dfrac{\mathcal{P}(\sigma=\sigma_{H}, \mathcal{I}_{News}=1)} {\mathcal{P}(\mathcal{I}_{News}=1)}\\
+&amp; =\frac{0.062}{0.165}\\
+&amp; =0.376
+\end{aligned}
+</span></p>
+<div style="height: 1.5em;">
+
+</div>
+<div class="fragment custom blur">
+<p>Given that we observe <span class="math inline">\mathcal{I}_{News}=0</span> we would like to compute the probability of <span class="math inline">\sigma=\sigma_{H}</span>: <span class="math display">
+\begin{aligned}
+\mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=0) &amp; =  \dfrac{\mathcal{P}(\sigma=\sigma_{H}, \mathcal{I}_{News}=0)} {\mathcal{P}(\mathcal{I}_{News}=0)}\\
+&amp; =\frac{0.249}{0.835}\\                                                                                &amp; =0.298
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="law-of-total-probability" class="slide level2">
+<h2>Law of total probability</h2>
+<p><span class="math display">
+\begin{aligned}
+\mathcal{P}(X) &amp;= \mathcal{P}(X,Y) + \mathcal{P}(X,Y^{c})\\
+&amp;= \mathcal{P}(X\vert Y)\mathcal{P}(Y) + \mathcal{P}(X \vert Y^{c})\mathcal{P}(Y^{c})
+\end{aligned}
+</span></p>
+<p>The events <span class="math inline">Y</span> and <span class="math inline">Y^{c}</span> partition <span class="math inline">X</span> into two mutually exclusive events.</p>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<p>Suppose we observed <span class="math inline">\sigma=\sigma_{H}</span> and would like to compute <span class="math inline">\mathcal{P}(\mathcal{I}_{News}=1\vert\sigma=\sigma_{H})</span>:</p>
+<p><span class="math display">
+\mathcal{P}(\mathcal{I}_{News}=1 \vert \sigma=\sigma_{H}) =  \dfrac{\mathcal{P}(\sigma=\sigma_{H}, \mathcal{I}_{News}=1)} {\mathcal{P}(\sigma=\sigma_{H})}  
+</span></p>
+</div>
+<div class="fragment custom blur">
+<p>Using law of total probability in denominator: <span class="math display">
+\begin{aligned}
+&amp;= \dfrac{\mathcal{P}(\sigma=\sigma_{H}, \mathcal{I}_{News}=1)} {\mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=1)\mathcal{P}(\mathcal{I}_{News}=1) + \mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=0)\mathcal{P}(\mathcal{I}_{News}=0)}\\
+&amp;= \dfrac{0.062} {(0.376 \times 0.165) + (0.298 \times 0.835) } \\
+&amp;=0.199
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="bayes-formula---conclusion" class="slide level2">
+<h2>Bayes’ Formula - Conclusion</h2>
+<div style="height: 1em;">
+
+</div>
+<p>High volatility conditional on news/no-news: <span class="math display">
+\begin{aligned}
+\mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=1)&amp;=0.376\\
+\mathcal{P}(\sigma=\sigma_{H}\vert \mathcal{I}_{News}=0)&amp;=0.298
+\end{aligned}
+</span></p>
+<div style="height: 1em;">
+
+</div>
+<p>News arrival conditional on realization of high/low volatility: <span class="math display">
+\begin{aligned}
+\mathcal{P}(\mathcal{I}_{News}=1 \vert \sigma=\sigma_{H})&amp;=0.199\\
+\mathcal{P}(\mathcal{I}_{News}=1 \vert \sigma=\sigma_{L})&amp;=0.149
+\end{aligned}
+</span></p>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<p><strong>Are news and volatility related?</strong></p>
+</div>
+</section>
+<section id="distributions-of-estimators" class="slide level2">
+<h2>Distributions of Estimators</h2>
+<p>Assume we have a random variable <span class="math inline">X_{t}\sim N\left( \mu,\sigma^{2}\right)</span> i.i.d.</p>
+<ul>
+<li>We can estimate <span class="math inline">\mu</span> by the sample mean <span class="math inline">\overline{X}=\frac{1}{T}
+\sum_{t=1}^{T}X_{t}</span>.</li>
+<li><span class="math inline">X_{t}\sim N()\Rightarrow</span> <span class="math inline">\overline{X}</span> will also be normally distributed.</li>
+</ul>
+<div class="fragment custom blur">
+<p>What’s the mean of <span class="math inline">\overline{X}</span>? <span class="math display">
+E\left(  \overline{X}\right)  =E\left(  \frac{1}{T}\sum_{t=1}^{T}X_{t}\right)
+=\frac{1}{T}\sum_{t=1}^{T}E\left(  X_{t}\right)  =\frac{1}{T}\times T\cdot
+\mu=\mu
+</span></p>
+</div>
+<div class="fragment custom blur">
+<p>What’s the variance of <span class="math inline">\overline{X}</span>? <span class="math display">
+\begin{align*}
+Var\left(  \overline{X}\right)   &amp; =Var\left(  \frac{1}{T}\sum_{t=1}^{T}%
+X_{t}\right) \\
+&amp; =\frac{1}{T^{2}}\left(  \sum_{t=1}^{T}Var\left(  X_{t}\right)  +2\sum
+_{t=1}^{T}\sum_{\tau=t+1}^{T}Cov\left(  X_{t},X_{\tau}\right)  \right)
+=\frac{\sigma^{2}}{T}%
+\end{align*}
+</span></p>
+</div>
+</section>
+<section id="convergence-of-sample-means" class="slide level2">
+<h2>Convergence of sample means</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p>Suppose <span class="math inline">X_{t}\sim</span> i.i.d. with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^{2}</span>.</p>
+<ul>
+<li>No assumption of normality! Just independence…</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<div class="fragment custom blur">
+<p>The Weak Law of Large Numbers (<em>WLLN</em>) implies convergence in probability <span class="math display">
+\overline{X}\overset{p}{\rightarrow}\mu\text{ when }T\rightarrow\infty
+</span></p>
+</div>
+<div style="height: 0.5em;">
+
+</div>
+<div class="fragment custom blur">
+<p>The Central Limit Theorem (<em>CLT</em>) implies convergence in distribution <span class="math display">
+\frac{\sqrt{T}\left(  \overline{X}-\mu\right)  }{\sigma}%
+\overset{d}{\rightarrow}N(0,1)\text{ when }T\rightarrow\infty
+</span> so <span class="math display">
+\Pr\left(  \frac{\sqrt{T}\left(  \overline{X}-\mu\right)  }{\sigma}&lt;x\right)
+\rightarrow\Phi\left(  x\right)  \text{ when }T\rightarrow\infty
+</span></p>
+</div>
+</section>
+<section id="convergence-of-sample-means-1" class="slide level2">
+<h2>Convergence of sample means</h2>
+<h3 id="intuition">Intuition</h3>
+<div style="height: 0.5em;">
+
+</div>
+<p>Recall that if <span class="math inline">X_{t}\sim</span> i.i.d.<span class="math inline">\left(\mu,\sigma^{2}\right)</span> and <span class="math inline">\overline{X}=\frac{1}{T}\sum_{t=1}^{T}X_{t}</span>, then <span class="math display">
+E\left(  \overline{X}\right)  =\mu\text{ and }Var\left(  \overline{X}\right)
+=\frac{\sigma^{2}}{T}%
+</span></p>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Convergence in probability <span class="math inline">\overline{X}\overset{p}{\rightarrow}\mu</span> comes from the fact that <span class="math inline">Var\left(  \overline{X}\right)  \rightarrow0</span> when <span class="math inline">T\rightarrow\infty</span>, which implies that <span class="math inline">\overline{X}</span> converges to <span class="math inline">\mu</span> when <span class="math inline">T\rightarrow\infty</span>.</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li>Convergence in distribution requires that, even if <span class="math inline">\overline{X}</span> is converging to <span class="math inline">\mu</span>, it will never be precisely equal to <span class="math inline">\mu</span>. If we scale up the difference <span class="math inline">\overline{X}-\mu</span> by a factor of <span class="math inline">\frac{\sqrt{T}}{\sigma}</span>, we get a deviation that converges to <span class="math inline">N(0,1)</span> when <span class="math inline">T\rightarrow\infty</span>.</li>
+</ul>
+</section>
+<section id="illustration-with-a-simulation" class="slide level2">
+<h2>Illustration with a simulation</h2>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>We simulate <span class="math inline">T=10,000</span> draws from a lognormal distribution with mean <span class="math inline">\mu=0</span> and variance <span class="math inline">\sigma^{2}=1</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>We split the sample into 400, 100, and 25 subsamples (of 25, 100, and 400 obs each) and compute the sample mean for each subsample.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>We plot the distribution of the sample means for each subsample size.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>The true mean of the lognormal distribution is <span class="math inline">e^{\left(\mu  + \frac{1}{2}\sigma^2\right)} = e^{0.5} \approx1.65</span></li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>The variance of the distribution is <span class="math inline">e^{2\mu+2\sigma^2}- e^{2\mu+\sigma^2} = e^2 - e \approx 4.67</span>
+<ul>
+<li>Std. dev. is <span class="math inline">\sqrt{e^2 - e}\approx 2.16</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="samples-of-25-observations" class="slide level2" data-transition="fade-out slide-in">
+<h2>400 samples of 25 observations</h2>
+<div id="69687407" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="1110" height="583"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="samples-of-100-observations" class="slide level2" data-transition="fade-out fade-in">
+<h2>100 samples of 100 observations</h2>
+<div id="1fccb8a7" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="1110" height="583"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="samples-of-400-observations" class="slide level2" data-transition="fade-out fade-in">
+<h2>25 samples of 400 observations</h2>
+<div id="205daed3" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="1110" height="583"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-closer-at-a-rate-of-n" class="slide level2" data-transition="slide-out fade-in">
+<h2>Getting closer at a rate of √N</h2>
+<div id="7464085e" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="1110" height="583"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="desirable-properties" class="slide level2">
+<h2>Desirable properties</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p>If we use <span class="math inline">\widehat{\theta}</span> to estimate <span class="math inline">\theta,</span> what properties might we wish for?</p>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li><p><strong>Unbiasedness</strong>: <span class="math inline">\widehat{\theta}</span> is an <em>unbiased</em> estimator of <span class="math inline">\theta</span> iff: <span class="math display">
+E\left(  \widehat{\theta}\right)  =\theta
+</span></p></li>
+<li><p><strong>Consistency</strong>: <span class="math inline">\widehat{\theta}</span> is a <em>consistent</em> estimator of <span class="math inline">\theta</span> iff: <span class="math display">
+\widehat{\theta}\overset{p}{\rightarrow}\theta\text{ when }T\rightarrow\infty
+</span></p></li>
+<li><p><strong>Efficiency</strong>: When <span class="math inline">\widehat{\theta}_{1}</span> and <span class="math inline">\widehat{\theta}_{2}</span> are two unbiased estimators of <span class="math inline">\theta</span>, then <span class="math inline">\widehat{\theta}_{1}</span> is more <em>efficient</em> than <span class="math inline">\widehat{\theta}_{2}</span> iff <span class="math display">
+Var\left(  \widehat{\theta}_{1}\right)  &lt;Var\left(  \widehat{\theta}%
+_{2}\right)
+</span></p>
+<ul>
+<li><span class="math inline">\widehat{\theta}</span> is an efficient estimator if it is the minimum-variance estimator.</li>
+<li>The Cramer-Rao Lower Bound gives the minimum variance limit for some distributions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="confidence-intervals" class="slide level2">
+<h2>Confidence Intervals</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p>A confidence interval is an interval constructed around some estimator <span class="math inline">\widehat{\theta}</span> which has a specified probability of containing <span class="math inline">\theta</span>.</p>
+<ul>
+<li><p>Example: Suppose <span class="math inline">X_{t}\sim N\left(  \mu,\sigma^{2}\right)</span> and <span class="math inline">\overline{X}=\frac{1}{T}\sum_{t=1}^{T}X_{t}</span></p></li>
+<li><p>The <span class="math inline">X_{t}</span> are Gaussian, so <span class="math inline">\overline{X}\sim N\left(  \mu,\frac{\sigma^{2}}{T}\right)</span>, which implies <span class="math inline">\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{T}}}\sim N\left(  0,1\right)</span></p></li>
+<li><p>Suppose there are two values <span class="math inline">l</span> and <span class="math inline">u</span> such that <span class="math inline">\Phi\left(
+l\right)  =\alpha/2</span> and <span class="math inline">\Phi\left(  u\right)  =1-\alpha/2</span>. Therefore <span class="math display">
+\Pr\left(  l&lt;\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{T}}}&lt;u\right)
+=1-\alpha
+</span></p></li>
+<li><p>A confidence interval with level <span class="math inline">1-\alpha</span> for the true mean <span class="math inline">\mu</span> will therefore be given by <span class="math display">
+l&lt;\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{T}}}&lt;u\Leftrightarrow\mu
+\in\left[  \overline{X}-\frac{\sigma}{\sqrt{T}}u,\text{ }\overline{X}%
+-\frac{\sigma}{\sqrt{T}}l\right]
+</span></p></li>
+</ul>
+</section>
+<section id="c.i.-for-the-mean-of-a-normal-distribution" class="slide level2">
+<h2>C.I. for the mean of a normal distribution</h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="932" data-source-offset="-41"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 931;"><span id="cb7-932"><a href=""></a>viewof mu4 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> {</span>
+<span id="cb7-933"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> </span>
+<span id="cb7-934"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> </span>
+<span id="cb7-935"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\b</span><span class="vs">ar{X}:`</span><span class="op">,</span></span>
+<span id="cb7-936"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"300px"</span></span>
+<span id="cb7-937"><a href=""></a>})</span>
+<span id="cb7-938"><a href=""></a></span>
+<span id="cb7-939"><a href=""></a>viewof sigma4 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span> {</span>
+<span id="cb7-940"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> </span>
+<span id="cb7-941"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> </span>
+<span id="cb7-942"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\s</span><span class="vs">igma:`</span><span class="op">,</span></span>
+<span id="cb7-943"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"300px"</span></span>
+<span id="cb7-944"><a href=""></a>})</span>
+<span id="cb7-945"><a href=""></a></span>
+<span id="cb7-946"><a href=""></a></span>
+<span id="cb7-947"><a href=""></a>viewof sampleT <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">10</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {</span>
+<span id="cb7-948"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb7-949"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> </span>
+<span id="cb7-950"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`T:`</span><span class="op">,</span></span>
+<span id="cb7-951"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"300px"</span></span>
+<span id="cb7-952"><a href=""></a>})</span>
+<span id="cb7-953"><a href=""></a></span>
+<span id="cb7-954"><a href=""></a>viewof alpha <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="fl">0.4</span>]<span class="op">,</span> {</span>
+<span id="cb7-955"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> </span>
+<span id="cb7-956"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> </span>
+<span id="cb7-957"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha:`</span><span class="op">,</span></span>
+<span id="cb7-958"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"300px"</span></span>
+<span id="cb7-959"><a href=""></a>})</span>
+<span id="cb7-960"><a href=""></a></span>
+<span id="cb7-961"><a href=""></a><span class="co">// Arrange sliders side by side</span></span>
+<span id="cb7-962"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 60px; margin-bottom: 50px;"&gt;</span></span>
+<span id="cb7-963"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof mu4<span class="sc">}</span></span>
+<span id="cb7-964"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof sigma4<span class="sc">}</span></span>
+<span id="cb7-965"><a href=""></a><span class="vs">&lt;/div&gt;&lt;div style="display: flex; gap: 60px; margin-bottom: 50px;"&gt;</span></span>
+<span id="cb7-966"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof sampleT<span class="sc">}</span></span>
+<span id="cb7-967"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof alpha<span class="sc">}</span></span>
+<span id="cb7-968"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="970" data-source-offset="-733"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 969;"><span id="cb8-970"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb8-971"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb8-972"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span></span>
+<span id="cb8-973"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"f(x)"</span></span>
+<span id="cb8-974"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb8-975"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb8-976"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">1.5</span>]<span class="op">,</span></span>
+<span id="cb8-977"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span></span>
+<span id="cb8-978"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb8-979"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb8-980"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(</span>
+<span id="cb8-981"><a href=""></a>      [{<span class="dt">x</span><span class="op">:</span> mu4<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">0</span>}<span class="op">,</span>{<span class="dt">x</span><span class="op">:</span> mu4<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">pdf</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> sigma4<span class="op">/</span>sampleT)}]<span class="op">,</span></span>
+<span id="cb8-982"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span>}</span>
+<span id="cb8-983"><a href=""></a>    )<span class="op">,</span></span>
+<span id="cb8-984"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(</span>
+<span id="cb8-985"><a href=""></a>      d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> <span class="fl">1.5</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">pdf</span>(x<span class="op">,</span> mu4<span class="op">,</span> sigma4<span class="op">/</span>sampleT)}))<span class="op">,</span></span>
+<span id="cb8-986"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>}</span>
+<span id="cb8-987"><a href=""></a>    )<span class="op">,</span></span>
+<span id="cb8-988"><a href=""></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(</span>
+<span id="cb8-989"><a href=""></a>      d3<span class="op">.</span><span class="fu">range</span>(mu4 <span class="op">-</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">inv</span>(<span class="dv">1</span> <span class="op">-</span> alpha <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>) <span class="op">*</span> sigma4<span class="op">/</span> sampleT<span class="op">,</span> mu4 <span class="op">+</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">inv</span>(<span class="dv">1</span> <span class="op">-</span> alpha <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>) <span class="op">*</span> sigma4<span class="op">/</span>sampleT<span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">pdf</span>(x<span class="op">,</span> mu4<span class="op">,</span> sigma4<span class="op">/</span>sampleT)}))<span class="op">,</span></span>
+<span id="cb8-990"><a href=""></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#0072ce"</span>}</span>
+<span id="cb8-991"><a href=""></a>    )<span class="op">,</span></span>
+<span id="cb8-992"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb8-993"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb8-994"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span></span>
+<span id="cb8-995"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb8-996"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb8-997"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb8-998"><a href=""></a>  }</span>
+<span id="cb8-999"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-6" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="classical-hypothesis-tests" class="slide level2">
+<h2>Classical Hypothesis Tests</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p>In a (classical) Hypothesis Test</p>
+<ul>
+<li>We specify a <strong>null hypothesis</strong> (<span class="math inline">H_{0}</span>) about the value of the parameter <span class="math inline">\mu</span> in the population.</li>
+<li>We choose an estimator for <span class="math inline">\mu</span> (sometimes implicitly) such that we know its distribution if <span class="math inline">\mu</span> takes the hypothesized value.</li>
+<li>We then try to reject <span class="math inline">H_{0}</span> by comparing it to an <strong>alternative hypothesis</strong> <span class="math inline">H_{A}</span>.</li>
+<li>Our criterion for rejection is: is the test statistic <strong>sufficiently</strong> unlikely to have been observed if the null is true?</li>
+</ul>
+<p>Examples: <span class="math display">
+\begin{align*}
+H_{0}  &amp; :\mu=\mu_{0};\text{ \ \ \ }H_{A}:\mu&lt;\mu_{0}\\
+H_{0}  &amp; :\mu=\mu_{0};\text{ \ \ \ }H_{A}:\mu&gt;\mu_{0}\\
+H_{0}  &amp; :\mu=\mu_{0};\text{ \ \ \ }H_{A}:\mu\neq\mu_{0}%
+\end{align*}
+</span></p>
+<ul>
+<li>If <span class="math inline">\mu_{0}</span> is within the <span class="math inline">1-\alpha</span> confidence interval for <span class="math inline">\mu</span>, we cannot reject <span class="math inline">H_{0}</span>.</li>
+</ul>
+</section>
+<section id="significance-level" class="slide level2">
+<h2>Significance Level</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Rejecting or accepting <span class="math inline">H_{0}</span> depends on the choice of <span class="math inline">\alpha</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><span class="math inline">1-\alpha</span> is called <strong><span class="primary-color">the confidence level</span></strong> of a test</li>
+<li><span class="math inline">\alpha</span> is called <strong><span class="primary-color">the significance level</span></strong> of a test</li>
+<li>The <strong><span class="primary-color">size of a test</span></strong> is the probability that we reject a true <span class="math inline">H_{0}</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<ul>
+<li>A test is <em>valid</em> when its size is no greater than its significance level <span class="math inline">\alpha</span></li>
+<li>When a test suffers from <em>size distortion</em>, it is no longer a valid test.</li>
+</ul>
+</div>
+</section>
+<section id="p-value" class="slide level2">
+<h2><span class="math inline">p</span>-value</h2>
+<div style="height: 1em;">
+
+</div>
+<p>The <span class="primary-color"><span class="math inline">p</span>-value</span> of a test is the smallest value <span class="math inline">\alpha_{0}</span> for which we can still reject <span class="math inline">H_{0}</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Suppose <span class="math inline">\widehat{\theta}\sim t_{10}</span> if <span class="math inline">H_{0}:\theta=0</span> is true.</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li>If <span class="math inline">\widehat{\theta}=2.5</span>, then <span class="math inline">p</span>-value <span class="math inline">=1-F_{t_{10}}\left(2.5\right)=0.0157</span>.</li>
+<li>If <span class="math inline">\widehat{\theta}=1.5</span>, then <span class="math inline">p</span>-value <span class="math inline">=1-F_{t_{10}}\left(1.5\right)=0.0823</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<ul>
+<li>The <em>significance level</em> depends on the critical value we choose.</li>
+<li>The <em>size</em> also depends on the true distribution of <span class="math inline">\widehat{\theta}</span> under <span class="math inline">H_{0}</span>.</li>
+<li>The <em><span class="math inline">p</span>-value</em> depends on the true distribution of <span class="math inline">\widehat{\theta}</span> under <span class="math inline">H_{0}</span> as well as the value of our test statistic <span class="math inline">\widehat{\theta}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="errors-types-i-and-ii" class="slide level2">
+<h2>Errors: Types I and II</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Hypothesis tests have two types of possible errors:</p>
+<div style="height: 0.5em;">
+
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Probability</th>
+<th>if <span class="math inline">H_{0}</span> is true</th>
+<th>if <span class="math inline">H_{0}</span> is false</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>of not rejecting <span class="math inline">H_{0}</span></td>
+<td><span class="math inline">1-\alpha</span></td>
+<td><span class="math inline">\beta</span></td>
+</tr>
+<tr class="even">
+<td>of rejecting <span class="math inline">H_{0}</span></td>
+<td><span class="math inline">\alpha</span></td>
+<td><span class="math inline">1-\beta</span></td>
+</tr>
+</tbody>
+</table>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li><span class="math inline">\alpha</span> is the probability of type I error.</li>
+<li><span class="math inline">\beta</span> is the probability of type II error.</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<div class="fragment custom blur">
+<ul>
+<li><p>In classical hypothesis testing, we control type I error but not type II error.</p></li>
+<li><p>Decision Theory tries to balance the probability of both types of error.</p>
+<ul>
+<li>For example, by using large values of <span class="math inline">\alpha</span> when <span class="math inline">T</span> is small, and small values of <span class="math inline">\alpha</span> when <span class="math inline">T</span> is large.</li>
+<li>Why? If <span class="math inline">\alpha</span> is fixed, <span class="math inline">\beta</span> shrinks when <span class="math inline">T</span> increases.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="test-power" class="slide level2">
+<h2>Test Power</h2>
+<div style="height: 0.5em;">
+
+</div>
+<p><span class="math inline">1-\beta</span> is the <strong><span class="primary-color">power</span></strong> of a test.</p>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li>Power tells us the probability of rejecting a null hypothesis that is false.</li>
+<li>Power depends on the alternative hypothesis. An alternative which is close to the null will be more difficult to reject than an alternative that is far from the null.</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li>Suppose the null hypothesis is <span class="math inline">H_{0}:\mu=0</span></li>
+<li>The power of the test of <span class="math inline">H_{0}</span> against the alternative <span class="math inline">H_{A}:\mu=6</span> will be much greater than that of the test of <span class="math inline">H_{0}</span> against the alternative <span class="math inline">H_{A}:\mu=0.01</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<ul>
+<li>A good statistician keeps in mind both the size and the power of their tests.</li>
+</ul>
+<div style="height: 0.5em;">
+
+</div>
+<p>When <em>rejecting</em> <span class="math inline">H_{0}</span>, the <em>size</em> of the test matters.</p>
+<div style="height: 0.2.5em;">
+
+</div>
+<p>When <em>unable to reject</em> <span class="math inline">H_{0}</span>, the <em>power</em> of the test matters.</p>
+</div>
+</section>
+<section id="more-on-classical-hypothesis-testing" class="slide level2">
+<h2>More on Classical Hypothesis Testing</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Classical hypothesis tests are really only informative when we reject the null hypothesis.</p>
+<ul>
+<li>Failure <em>to reject</em> the null does not imply that the null <em>is correct</em>.</li>
+<li>Never say “the test results prove that the null hypothesis is correct.”</li>
+<li>When we are unable to reject the null, we usually have no idea of the probability of rejecting it when it is false.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>This is a lot like a legal trial.</p>
+<ul>
+<li>People are innocent until proven guilty.</li>
+<li>A verdict of “innocent” does not prove innocence. It just means that there was not enough evidence to convict (i.e.&nbsp;reasonable doubt).</li>
+</ul>
+</section>
+<section id="economic-and-statistical-significance" class="slide level2">
+<h2>Economic and Statistical Significance</h2>
+<div style="height: 1em;">
+
+</div>
+<p><strong>Statistical Significance</strong> Can we reject the null hypothesis at typical confidence levels?</p>
+<p><strong>Economic Significance</strong> Is the difference between our estimate and the null hypothesis important or interesting?</p>
+<div style="height: 1em;">
+
+</div>
+<p><strong>Example</strong> Suppose we’re examining the annual <span class="math inline">\alpha</span><sup>1</sup> of trading strategies.</p>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li>If <span class="math inline">\widehat{\alpha}_{momentum}=0.1\%</span> and we reject the null: <span class="math inline">H_{0}:{\alpha}_{momentum}=0</span>, the performance is statistically significant, but not economically.</li>
+<li>If <span class="math inline">\widehat{\alpha}_{secret}=22\%</span> and we don’t reject the null, the performance is still economically significant (and our test lacks power).</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>The <em>finance</em> meaning of <span class="math inline">\alpha</span>; not to be confused with the significance level discussed in previous slides.</p></li></ol></aside></section>
+<section id="p-values-context" class="slide level2">
+<h2><span class="math inline">p</span>-values: Context</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://imgs.xkcd.com/comics/p_values.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Source: <a href="https://xkcd.com/1478/">xkcd.com/1478/</a></p>
+</div></aside></section>
+<section id="p-values-context-1" class="slide level2">
+<h2><span class="math inline">p</span>-values: Context</h2>
+<div style="height: 1em;">
+
+</div>
+<p>2016 ASA Statement on Statistical Significance and <span class="math inline">p</span>-values <span class="citation" data-cites="wasserstein2016asa">(<a href="#/references" role="doc-biblioref" onclick="">Wasserstein and Lazar 2016</a>)</span></p>
+<div style="height: 2em;">
+
+</div>
+<p><strong>Reproducibility</strong> Across many research fields, a “surprising” fraction of published findings don’t survive further scrutiny. (e.g.&nbsp;Drug trials, excess returns, economic policy impacts)</p>
+<div style="height: 1em;">
+
+</div>
+<p><strong>The list of references</strong> 26 in Health Science, 8 in Statistics, 5 Other, 0 Finance</p>
+<div style="height: 1em;">
+
+</div>
+<p><strong>Results</strong> “…much confusion and even doubt about the validity of science is arising. Such doubt can lead to radical choices, such as the one taken by the editors of <em>Basic and Applied Social Psychology</em>, who decided to ban p-values (null hypothesis significance testing).”</p>
+
+<aside><div>
+<p>See also <span class="citation" data-cites="baker2016statisticians">Baker et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> for a discussion of the ASA statement.</p>
+</div></aside></section>
+<section id="p-values-context-2" class="slide level2">
+<h2><span class="math inline">p</span>-values: Context</h2>
+<p>2016 ASA Statement on Statistical Significance and <span class="math inline">p</span>-values <span class="citation" data-cites="wasserstein2016asa">(<a href="#/references" role="doc-biblioref" onclick="">Wasserstein and Lazar 2016</a>)</span></p>
+<div style="height: 2em;">
+
+</div>
+<blockquote>
+<p>Underpinning many published scientific conclusions is the concept of “statistical significance,” typically assessed with an index called the p-value. While the p-value can be a useful statistical measure, it is commonly misused and misinterpreted. This has led to some scientific journals discouraging the use of p-values, and some scientists and statisticians recommending their abandonment, with some arguments essentially unchanged since p-values were first introduced.</p>
+</blockquote>
+</section>
+<section id="principles" class="slide level2">
+<h2>Principles</h2>
+<div style="height: 2em;">
+
+</div>
+<ol type="1">
+<li><span class="math inline">p</span>-values can indicate how incompatible the data are with a specified statistical model.
+<ul>
+<li>This incompatibility can be interpreted as casting doubt on or providing evidence against the null hypothesis or the underlying assumptions.</li>
+</ul></li>
+</ol>
+<div style="height: 2em;">
+
+</div>
+<ol start="2" type="1">
+<li><span class="math inline">p</span>-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.
+<ul>
+<li>Researchers often wish to turn a <span class="math inline">p</span>-value into a statement about the truth of a null hypothesis or about the probability that random chance produced the observed data. The p-value is neither.</li>
+</ul></li>
+</ol>
+</section>
+<section id="principles-1" class="slide level2">
+<h2>Principles</h2>
+<div style="height: 2em;">
+
+</div>
+<ol type="1">
+<li>Scientific conclusions and business or policy decisions should not be based only on whether a <span class="math inline">p</span>-value passes a specific threshold.
+<ul>
+<li>Researchers should bring many contextual factors into play to derive scientific inferences, including the design of a study, the quality of the measurements, the external evidence for the phenomenon under study, and the validity of assumptions that underlie the data analysis.</li>
+<li>The widespread use of “statistical significance” (generally interpreted as <span class="math inline">p\leq0.05</span>) as a license for making a claim of a scientific finding (or implied truth) leads to considerable distortion of the scientific process.</li>
+</ul></li>
+</ol>
+<div style="height: 2em;">
+
+</div>
+<ol start="2" type="1">
+<li>Proper inference requires full reporting and transparency.
+<ul>
+<li>Valid scientific conclusions based on p-values and related statistics cannot be drawn without at least knowing how many and which analyses were conducted, and how those analyses (including <span class="math inline">p</span>-values) were selected for reporting.</li>
+</ul></li>
+</ol>
+</section>
+<section id="principles-2" class="slide level2">
+<h2>Principles</h2>
+<div style="height: 2em;">
+
+</div>
+<ol type="1">
+<li>A <span class="math inline">p</span>-value, or statistical significance, does not measure the size of an effect or the importance of a result.
+<ul>
+<li>Statistical significance is not equivalent to scientific, human, or economic significance.</li>
+</ul></li>
+</ol>
+<div style="height: 2em;">
+
+</div>
+<ol start="2" type="1">
+<li>By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.
+<ul>
+<li>A relatively large p-value does not imply evidence in favor of the null hypothesis; many other hypotheses may be equally or more consistent with the observed data.</li>
+</ul></li>
+</ol>
+</section>
+<section id="principles-3" class="slide level2">
+<h2>Principles</h2>
+<div style="height: 2em;">
+
+</div>
+<p><strong>“What do you hope this statement will accomplish?”</strong></p>
+<div style="height: 1em;">
+
+</div>
+<blockquote>
+<p>We have big dreams for this statement. We’d love to see the practice of science with respect to its use of statistical inference undergo a cultural shift. We envision a “post <span class="math inline">p&lt;0.05</span> era,” one in which scientific argumentation is not based on whether a <span class="math inline">p</span>-value is small enough. In this era, attention would be paid to effect sizes and confidence intervals. …journals will stop using statistical significance to determine whether to accept an article. Instead, journals will accept papers based on a clear and detailed description of the study design, execution, and analysis. ….We won’t be left scratching our heads trying to sort out researcher degrees of freedom.</p>
+<p><em>ASA President Jessica Utts, Amstat News, April 2016</em></p>
+</blockquote>
+</section>
+<section id="eugene-fama-on-statistics" class="slide level2">
+<h2>Eugene Fama on Statistics</h2>
+<div style="height: 2em;">
+
+</div>
+<blockquote>
+<p>“…I came to the University of Chicago in 1960…In my first year I took an intermediate statistics class with a professor named Harry Roberts…what I learned from Harry was a philosophy. He gave me an attitude toward statistics that has stuck with me ever since.</p>
+<p>With formal statistics, you say something – a hypothesis – and then you test it. Harry always said that your criterion should be not whether or not you can reject or accept the hypothesis, but what you can learn from the data. The best thing you can do is use the data to enhance your description of the world. That has been the guiding light of my research. You should use market data to understand markets better, not to say this or that hypothesis is literally true or false. No model is ever strictly true. The real criterion should be: Do I know more about markets when I’m finished than I did when I started? Harry’s lesson is one that I’ve passed on to my students over the 49 years that I’ve been a teacher.</p>
+</blockquote>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="fortune2012best">Fortune (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span></p>
+</div></aside></section>
+<section id="confidence-intervals-1" class="slide level2">
+<h2>Confidence Intervals</h2>
+<div style="height: 2em;">
+
+</div>
+<p>In recent decades, economic practices have evolved and focused on:</p>
+<ul>
+<li>Identification</li>
+<li>Economic and statistical significance</li>
+<li>Using correct standard errors</li>
+<li>New methods for dynamics, heterogeneity, and nonlinearities.</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p>However, most papers concentrate on:</p>
+<ul>
+<li>Whether the point estimates are statistically significantly different from zero.</li>
+<li>Economic interpretation of the point estimates.</li>
+</ul>
+</section>
+<section id="in-praise-of-confidence-intervals-romer2020praise" class="slide level2">
+<h2>In Praise of Confidence Intervals <span class="citation" data-cites="romer2020praise">(<a href="#/references" role="doc-biblioref" onclick="">Romer 2020</a>)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/CI.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="romer2020praise">Romer (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span></p>
+</div></aside></section>
+<section id="why-are-t-stat-or-p-values-not-enough" class="slide level2">
+<h2>Why are <span class="math inline">t</span>-stat or <span class="math inline">p</span>-values not enough?</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Sometimes we care about more than rejecting a value of 0.</li>
+<li>Decision makers sometimes want to compare to a “threshold” for action.</li>
+<li>A t-statistic of 2.1 or 2.6 is merely strong evidence against a value of zero, while a t-statistic of 4.0 is overwhelming evidence.</li>
+<li>Smaller t-statistics provide strong evidence against a value of zero, they provide only moderate evidence against many values that are much closer to zero than to the point estimate.</li>
+<li>It is rare for there to be no issues or concerns with the estimates and standard errors.</li>
+</ul>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Report and discuss a confidence interval.</li>
+<li>In contrast to reporting a point estimate and whether it is statistically significantly different from zero, reporting a confidence interval provides information about the full range of possible values of the parameter.</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p>But, which interval to report?</p>
+<ul>
+<li>With the traditional 2 standard error interval (<span class="math inline">\sim 95\%</span>), boundary values are 7 times less likely than the point estimate. Is it worth reporting the whole range?</li>
+<li>90% (1.645 standard error) bands, they appear to be the most natural alternative, point estimate is 4 times more likely than boundary values.</li>
+<li>Even better, report both!</li>
+</ul>
+</section>
+<section id="multiple-hypotheses-testing" class="slide level2">
+<h2>Multiple Hypotheses Testing</h2>
+<h3 id="explanation-of-the-problem">Explanation of the Problem</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li><p>Occurs when researchers perform a large amount of similar tests to determine whether a joint null hypothesis must be rejected.</p></li>
+<li><p>As more tests are done, the laws of probability indicate that the odds of false positives become very important.</p></li>
+<li><p>Becomes a problem when rejection of one amongst many nulls is considered sufficient grounds for rejecting the joint null.</p></li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p>See <a href="https://xkcd.com/882/">🍬 xkcd</a></p>
+</section>
+<section id="bonferroni-tests" class="slide level2">
+<h2>Bonferroni Tests</h2>
+<p>Suppose we want to test a joint null hypothesis at a significance level of <span class="math inline">\alpha</span>: <span class="math display">
+H_{0}:\mu_{i}=0,\text{ }\forall\text{ }i=1,...,N
+</span> The alternative hypothesis is <span class="math display">
+H_{A}:\exists\text{ at least one }i\text{ such that }\mu_{i}\neq0
+</span></p>
+<ul>
+<li>We could do a separate test for each parameter <span class="math inline">\mu_{i}</span>: <span class="math display">
+H_{0}^{(i)}:\mu_{i}=0,\text{ }i=1,...,N
+</span> As soon as we find an <span class="math inline">i</span> for which <span class="math inline">\left\vert t_{i}\right\vert &gt;z_{\alpha} \Rightarrow</span> reject <span class="math inline">H_{0}^{(i)},H_{0}</span></li>
+</ul>
+<p>If the tests are independent, they will give us a rate of acceptance of <span class="math inline">H_{0}</span> of <span class="math inline">\left(  1-\alpha\right)  ^{N}</span>, which implies a rejection rate of: <span class="math display">
+1-\left(  1-\alpha\right)  ^{N}\neq\alpha
+</span></p>
+</section>
+<section id="bonferroni-tests-1" class="slide level2">
+<h2>Bonferroni Tests</h2>
+<div style="height: 2em;">
+
+</div>
+<p>A Bonferroni test simply adjusts the significance level <span class="math inline">\alpha</span> of the individual tests: <span class="math display">
+H_{0}^{(i)}:\mu_{i}=0,\text{ }i=1,...,N
+</span> It uses <span class="math inline">\left\vert t_{i}\right\vert &gt;z_{\alpha/N}\Rightarrow</span> reject <span class="math inline">H_{0}^{(i)}</span>, <span class="math inline">i=1,...,N</span>.</p>
+<p>This gives an overall rejection rate for <span class="math inline">H_{0}</span> <span class="math inline">\leq\alpha</span>.</p>
+</section>
+<section id="bonferroni-tests-2" class="slide level2">
+<h2>Bonferroni Tests</h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1507" data-source-offset="-70"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1506;"><span id="cb9-1507"><a href=""></a>viewof numTests <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {</span>
+<span id="cb9-1508"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb9-1509"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> </span>
+<span id="cb9-1510"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`N`</span><span class="op">,</span></span>
+<span id="cb9-1511"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb9-1512"><a href=""></a>})</span>
+<span id="cb9-1513"><a href=""></a></span>
+<span id="cb9-1514"><a href=""></a>viewof alpha2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.1</span>]<span class="op">,</span> {</span>
+<span id="cb9-1515"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> </span>
+<span id="cb9-1516"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> </span>
+<span id="cb9-1517"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="op">,</span></span>
+<span id="cb9-1518"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb9-1519"><a href=""></a>})</span>
+<span id="cb9-1520"><a href=""></a></span>
+<span id="cb9-1521"><a href=""></a><span class="co">// Arrange sliders side by side</span></span>
+<span id="cb9-1522"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 200px; margin-bottom: 20px;"&gt;</span></span>
+<span id="cb9-1523"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof numTests<span class="sc">}</span></span>
+<span id="cb9-1524"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof alpha2<span class="sc">}</span></span>
+<span id="cb9-1525"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1528" data-source-offset="-499"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1527;"><span id="cb10-1528"><a href=""></a>bonferroniAlpha <span class="op">=</span> alpha2 <span class="op">/</span> numTests<span class="op">;</span></span>
+<span id="cb10-1529"><a href=""></a></span>
+<span id="cb10-1530"><a href=""></a><span class="co">// Display the adjusted significance level</span></span>
+<span id="cb10-1531"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 20px;"&gt;</span></span>
+<span id="cb10-1532"><a href=""></a><span class="vs">  &lt;p&gt;&lt;div&gt;Bonferroni-Adjusted </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>bonferroniAlpha<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;div&gt; </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`1-</span><span class="sc">\l</span><span class="vs">eft(  1-</span><span class="sc">\a</span><span class="vs">lpha</span><span class="sc">\r</span><span class="vs">ight)^N=`</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>(<span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> alpha2<span class="op">,</span> numTests))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/p&gt;</span></span>
+<span id="cb10-1533"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1536" data-source-offset="-886"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1535;"><span id="cb11-1536"><a href=""></a>pValues <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(numTests)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())<span class="op">;</span></span>
+<span id="cb11-1537"><a href=""></a></span>
+<span id="cb11-1538"><a href=""></a><span class="co">// Plot the p-values and the significance thresholds</span></span>
+<span id="cb11-1539"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-1540"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb11-1541"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb11-1542"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"p-value"</span></span>
+<span id="cb11-1543"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb11-1544"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb11-1545"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> numTests]<span class="op">,</span></span>
+<span id="cb11-1546"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Test Number"</span></span>
+<span id="cb11-1547"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb11-1548"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-1549"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([alpha2]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"alpha"</span>})<span class="op">,</span></span>
+<span id="cb11-1550"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([bonferroniAlpha]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"blue"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bonferroni alpha"</span>})<span class="op">,</span></span>
+<span id="cb11-1551"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(pValues<span class="op">.</span><span class="fu">map</span>((p<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> p}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>})</span>
+<span id="cb11-1552"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb11-1553"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb11-1554"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb11-1555"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb11-1556"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb11-1557"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb11-1558"><a href=""></a>  }</span>
+<span id="cb11-1559"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-7" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonferroni-tests-3" class="slide level2">
+<h2>Bonferroni Tests</h2>
+<div style="height: 2em;">
+
+</div>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>The size of the joint test does not exceed the desired significance level <span class="math inline">\alpha</span>.</li>
+<li>Easy to use.</li>
+<li>We don’t need to estimate the covariance of the parameter estimates that we seek to test.</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Not necessarily the most powerful test.
+<ul>
+<li>More powerful tests usually require estimates of that covariance matrix.</li>
+</ul></li>
+</ul>
+</section>
+<section id="goodness-of-fit-tests" class="slide level2">
+<h2>Goodness-of-Fit Tests</h2>
+<h3 id="pearson">Pearson</h3>
+<div style="height: 2em;">
+
+</div>
+<p>We want to test <span class="math inline">H_{0}:x\sim f\left(  ~\right)</span></p>
+<ul>
+<li><span class="math inline">N\left(  0,1\right)</span>? Gaussian? ARCH residuals <span class="math inline">\sim t\left(d\right)</span>?</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p>We could… draw a histogram.</p>
+<ul>
+<li>Need to choose the number of bins <span class="math inline">K</span>.</li>
+<li>Compare the observed frequencies <span class="math inline">b_{i}</span> to the expected frequencies <span class="math inline">e_{i}</span> under <span class="math inline">H_{0}</span>.</li>
+</ul>
+<p><span class="math display">
+e_{i}\equiv F\left(  u_{i}\right)  -F\left(  l_{i}\right) , \text{ where } \left[  l_{i},u_{i}\right]  \text{ define the }i\text{th bin}
+</span> <span class="math display">
+b_{i}\equiv\% \text{ of sample in the interval }\left[  l_{i},u_{i}\right].
+</span></p>
+</section>
+<section id="pearsons-goodness-of-fit-test-1900" class="slide level2">
+<h2>Pearson’s Goodness of Fit Test (1900)</h2>
+<div style="height: 2em;">
+
+</div>
+<p><span class="math display">
+q = \sum_{i=1}^{K}\frac{T\left(  b_{i}-e_{i}\right)  ^{2}}{e_{i}} \sim \chi^{2}(K-1-p) \text{ for large } T
+</span> where <span class="math inline">p\equiv\# \text{ estimated parameters}</span>.</p>
+<ul>
+<li>Reject <span class="math inline">H_{0}</span> if <span class="math inline">q&gt;</span> critical value.</li>
+</ul>
+</section>
+<section id="goodness-of-fit-tests-1" class="slide level2">
+<h2>Goodness-of-Fit Tests</h2>
+<h3 id="pearson-1">Pearson</h3>
+<div id="b9d8c688" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-9-output-1.png" width="1136" height="572"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="degrees-of-freedom" class="slide level2">
+<h2>Degrees of Freedom</h2>
+<div style="height: 2em;">
+
+</div>
+<p>When testing hypotheses, we’ll often talk about the <em>degrees of freedom</em> (dof)</p>
+<ul>
+<li>In statistics, <span class="math inline">dof\approx T-p</span>.
+<ul>
+<li><span class="math inline">T\equiv</span> number of (independent) observations.</li>
+<li><span class="math inline">p\equiv</span> number of parameters estimated (explicitly or implicitly).</li>
+</ul></li>
+<li>As <span class="math inline">p</span> increases, the fit improves. We need to correct for this.</li>
+</ul>
+<p><strong>Example</strong> Pearson’s Goodness of Fit Test: <span class="math display">
+q = \sum_{i=1}^{K}\frac{T\left(  b_{i}-e_{i}\right)  ^{2}}{e_{i}} \sim \chi^{2}(K-1-p)
+</span> In this case, <span class="math inline">dof=K-p</span>.</p>
+</section>
+<section id="the-empirical-cdf-ecdf" class="slide level2">
+<h2>The Empirical CDF (ECDF)</h2>
+<div style="height: 2em;">
+
+</div>
+<p><strong>Definition</strong>: The Empirical CDF (ECDF) is a non-decreasing step function <span class="math inline">0 \leq \widehat{F}\left(  x\right) \leq 1</span> such that</p>
+<p><span class="math display">
+\widehat{F}\left(x\right)\equiv\frac{1}{N}\cdot\sum_{i=1}^{N}1\left( x-x_{i}\right)
+</span></p>
+<p>where we have observations <span class="math inline">\{x_{1},\ldots,x_{N}\}</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><span class="math inline">\Rightarrow \widehat{F}\left(x_{i}\right)</span> is the fraction of the sample <span class="math inline">&lt;x_{i}</span>.</li>
+</ul>
+</section>
+<section id="the-empirical-cdf-ecdf-1" class="slide level2">
+<h2>The Empirical CDF (ECDF)</h2>
+<div id="46c5b453" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="1114" height="603"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="goodness-of-fit-tests-2" class="slide level2">
+<h2>Goodness-of-Fit Tests</h2>
+<h3 id="kolmogorov-smirnov-ks">Kolmogorov-Smirnov (KS)</h3>
+<div style="height: 2em;">
+
+</div>
+<p><strong>One Sample</strong>: <span class="math inline">H_{0}: F\left(  ~\right) = G\left(  ~\right)</span> where we specify <span class="math inline">G</span>.</p>
+<p><strong>Two Sample</strong>: <span class="math inline">H_{0}: F\left(  ~\right) = G\left(  ~\right)</span> where <span class="math inline">G</span> is the unknown distribution of a second sample <span class="math inline">y</span>.</p>
+<p>The KS test uses the <em>empirical</em> CDF <span class="math inline">\widehat{F}\left(  x_{i}\right)</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<p>The test statistic is:</p>
+<p><strong>One Sample</strong>: <span class="math display">
+D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - G\left( x_{i}\right) \right\vert
+</span></p>
+<div style="height: 0.5em;">
+
+</div>
+<p><strong>Two Sample</strong>: <span class="math display">
+D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - \widehat{G}\left( y_{i}\right) \right\vert
+</span></p>
+</section>
+<section id="goodness-of-fit-tests-3" class="slide level2">
+<h2>Goodness-of-Fit Tests</h2>
+<h3 id="kolmogorov-smirnov-ks-1">Kolmogorov-Smirnov (KS)</h3>
+<div id="5caea3a7" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="1114" height="619"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="goodness-of-fit-tests-4" class="slide level2">
+<h2>Goodness-of-Fit Tests</h2>
+<h3 id="kolmogorov-smirnov-ks-2">Kolmogorov-Smirnov (KS)</h3>
+<div style="height: 2em;">
+
+</div>
+<p>The Kolmogorov-Smirnov test has some advantages over other the more popular Pearson test:</p>
+<ul>
+<li>No need to choose <span class="math inline">K</span>.</li>
+<li>More powerful (uses <em>all</em> <span class="math inline">T</span> observations, not just <span class="math inline">K</span> bins).</li>
+<li>Exact distribution is known under <span class="math inline">H_{0}</span>, even for small <span class="math inline">T</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>It also has some disadvantages:</p>
+<ul>
+<li>Non-standard distribution under <span class="math inline">H_{0}</span>.</li>
+<li>Not the most powerful test if we estimate parameters of <span class="math inline">G\left(  \right)</span> (e.g.&nbsp;<span class="math inline">N\left(  \widehat{\mu},\widehat{\sigma}\right)</span>).</li>
+</ul>
+</section>
+<section id="qq-and-p-p-plots" class="slide level2">
+<h2>QQ and P-P Plots</h2>
+<div style="height: 2em;">
+
+</div>
+<p>How can we compare an empirical distribution to a <em>theoretical</em> distribution?</p>
+<div style="height: 1em;">
+
+</div>
+<ol type="1">
+<li><strong>Goodness-of-Fit Tests</strong>:
+<ul>
+<li>e.g.&nbsp;Pearson, Kolmogorov-Smirnov</li>
+<li><span class="math inline">H_{0}:F\left(  \tau\right) = \widehat{F}\left(  \tau\right)</span></li>
+<li>But these test the whole distribution; for tests we mostly just care about the tails (i.e.&nbsp;do we have the right critical values?)</li>
+<li>How powerful are these tests? in the tails? Should we worry about type II error?</li>
+</ul></li>
+</ol>
+<div style="height: 1em;">
+
+</div>
+<ol start="2" type="1">
+<li><strong>Graphical Methods</strong>:
+<ul>
+<li>e.g.&nbsp;QQ plots, P-P plots <span class="citation" data-cites="davidson1998graphical">(see, e.g., <a href="#/references" role="doc-biblioref" onclick="">Davidson and MacKinnon 1998</a>)</span></li>
+</ul></li>
+</ol>
+</section>
+<section id="qq-plots" class="slide level2">
+<h2>QQ Plots</h2>
+<ul>
+<li><p>Given a sample <span class="math inline">\{X_{t}\}</span>, they plot the <em>quantiles</em> of <span class="math inline">F\left(  .\right)</span> on x-axis vs <span class="math inline">\widehat{F}\left(  .\right)</span> on y-axis.</p></li>
+<li><p>i.e.&nbsp;<span class="math inline">\{F^{-1}\left(  \widehat{F}\left(  X_{t}\right)  \right)\}</span> on x-axis vs <span class="math inline">X_{t}</span> on y-axis <span class="math inline">\forall t</span>.</p></li>
+</ul>
+<div id="9482a1b5" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-12-output-1.png" class="quarto-figure quarto-figure-center" width="1110" height="529"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="kernel-density-estimator" class="slide level2">
+<h2>Kernel Density Estimator</h2>
+<div style="height: 2em;">
+
+</div>
+<p>A typical histogram looks more like a big city skyline than a density function and its appearance is sensitive to the number and locations of its cells.</p>
+<div style="height: 2em;">
+
+</div>
+<p>A much better estimator is the <strong>kernel density estimator (KDE)</strong>: <span class="math display">
+\widehat{f}(y) = \frac{1}{nb} \sum_{i=1}^{n} K \left(\frac{y-Y_i}{b}\right)
+</span> where <span class="math inline">b</span>, which is called the bandwidth, determines the resolution of the estimator. <span class="math inline">K</span> is the kernel function, which is a probability density function that is symmetric about 0. The standard normal density function is a common choice for <span class="math inline">K</span>.</p>
+</section>
+<section id="kernel-density-estimator-1" class="slide level2">
+<h2>Kernel Density Estimator</h2>
+<div id="3de431a4" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lecture06_files/figure-revealjs/cell-13-output-1.png" class="quarto-figure quarto-figure-center" width="1114" height="603"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="kernel-density-estimate-plot" class="slide level2">
+<h2>Kernel Density Estimate Plot</h2>
+<div style="height: 2em;">
+
+</div>
+<p>A kernel density estimate (KDE) plot is a method for visualizing the distribution of observations in a dataset, analogous to a histogram. KDE represents the data using a continuous probability density curve in one or more dimensions.</p>
+<div style="height: 1em;">
+
+</div>
+<p>Relative to a histogram, KDE can produce a plot that is less cluttered and more interpretable, especially when drawing multiple distributions. But it has the potential to introduce distortions if the underlying distribution is bounded or not smooth.</p>
+</section>
+<section id="kernel-density-estimation" class="slide level2">
+<h2>Kernel Density Estimation</h2>
+<div style="height: 1em;">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="1994" data-source-offset="-53"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1993;"><span id="cb12-1994"><a href=""></a>data <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">50</span>)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">sample</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>))</span>
+<span id="cb12-1995"><a href=""></a></span>
+<span id="cb12-1996"><a href=""></a><span class="co">// Create a slider for bandwidth</span></span>
+<span id="cb12-1997"><a href=""></a>viewof bandwidth <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.02</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {</span>
+<span id="cb12-1998"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.02</span><span class="op">,</span> </span>
+<span id="cb12-1999"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span> </span>
+<span id="cb12-2000"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`b`</span><span class="op">,</span></span>
+<span id="cb12-2001"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"600px"</span></span>
+<span id="cb12-2002"><a href=""></a>})</span>
+<span id="cb12-2003"><a href=""></a></span>
+<span id="cb12-2004"><a href=""></a><span class="co">// Function to calculate KDE</span></span>
+<span id="cb12-2005"><a href=""></a><span class="kw">function</span> <span class="fu">kde</span>(data<span class="op">,</span> bandwidth) {</span>
+<span id="cb12-2006"><a href=""></a>  <span class="kw">const</span> kernel <span class="op">=</span> x <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> x <span class="op">*</span> x) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>)</span>
+<span id="cb12-2007"><a href=""></a>  <span class="kw">const</span> scale <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (data<span class="op">.</span><span class="at">length</span> <span class="op">*</span> bandwidth)</span>
+<span id="cb12-2008"><a href=""></a>  <span class="cf">return</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({</span>
+<span id="cb12-2009"><a href=""></a>    x<span class="op">,</span></span>
+<span id="cb12-2010"><a href=""></a>    <span class="dt">y</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">kernel</span>((x <span class="op">-</span> d) <span class="op">/</span> bandwidth)) <span class="op">*</span> scale</span>
+<span id="cb12-2011"><a href=""></a>  }))</span>
+<span id="cb12-2012"><a href=""></a>}</span>
+<span id="cb12-2013"><a href=""></a></span>
+<span id="cb12-2014"><a href=""></a><span class="co">// Plot the KDE with variable bandwidth</span></span>
+<span id="cb12-2015"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-2016"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb12-2017"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Density"</span></span>
+<span id="cb12-2018"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb12-2019"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb12-2020"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Value"</span></span>
+<span id="cb12-2021"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb12-2022"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb12-2023"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(<span class="fu">kde</span>(data<span class="op">,</span> bandwidth)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})</span>
+<span id="cb12-2024"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb12-2025"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb12-2026"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb12-2027"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb12-2028"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb12-2029"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb12-2030"><a href=""></a>  }</span>
+<span id="cb12-2031"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-6-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-baker2016statisticians" class="csl-entry" role="listitem">
+Baker, Monya et al. 2016. <span>“Statisticians Issue Warning on p Values.”</span> <em>Nature</em> 531 (7593): 151–51.
+</div>
+<div id="ref-baltagi_econometrics_2022" class="csl-entry" role="listitem">
+Baltagi, Badi H. 2022. <em>Econometrics</em>. 6th ed. Classroom Companion: Economics. Springer Cham. <a href="https://doi.org/10.1007/978-3-030-80149-6">https://doi.org/10.1007/978-3-030-80149-6</a>.
+</div>
+<div id="ref-davidson1998graphical" class="csl-entry" role="listitem">
+Davidson, Russell, and James G MacKinnon. 1998. <span>“Graphical Methods for Investigating the Size and Power of Hypothesis Tests.”</span> <em>The Manchester School</em> 66 (1): 1–26.
+</div>
+<div id="ref-fortune2012best" class="csl-entry" role="listitem">
+Fortune. 2012. <span>“The Best Advice <span>I</span> Ever Got.”</span> <em>Fortune</em>. <a href="https://fortune.com/2012/10/25/the-best-advice-i-ever-got/">https://fortune.com/2012/10/25/the-best-advice-i-ever-got/</a>.
+</div>
+<div id="ref-romer2020praise" class="csl-entry" role="listitem">
+Romer, David. 2020. <span>“In Praise of Confidence Intervals.”</span> In <em>AEA Papers and Proceedings</em>, 110:55–60. American Economic Association.
+</div>
+<div id="ref-wasserstein2016asa" class="csl-entry" role="listitem">
+Wasserstein, Ronald L, and Nicole A Lazar. 2016. <span>“The ASA Statement on p-Values: Context, Process, and Purpose.”</span> <em>The American Statistician</em>. Taylor &amp; Francis.
+</div>
+</div>
+</section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="figures/logo_hec_montreal_bleu_web.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>MATH60207</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture06_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture06_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture06_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false,"theme":"whiteboard"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIEltcG9ydCByZXF1aXJlZCBsaWJyYXJpZXNcblBsb3QgPSByZXF1aXJlKFwiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L25wbS9Ab2JzZXJ2YWJsZWhxL3Bsb3RAMC42LjExL2Rpc3QvcGxvdC51bWQubWluLmpzXCIpXG5kMyA9IHJlcXVpcmUoXCJkM1wiKVxualN0YXQgPSByZXF1aXJlKCdodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2pzdGF0QGxhdGVzdC9kaXN0L2pzdGF0Lm1pbi5qcycpXG5cbi8vIENyZWF0ZSBzbGlkZXJzIHdpdGggc21hbGxlciB0ZXh0IHNpemVcbnZpZXdvZiBtdSA9IElucHV0cy5yYW5nZShbLTMsIDNdLCB7XG4gIHN0ZXA6IDAuMSwgXG4gIHZhbHVlOiAwLCBcbiAgbGFiZWw6IHRleGBcXHRleHR7bG9jOiB9XFxtdWAsXG4gIHdpZHRoOiBcIjQ1MHB4XCJcbn0pXG5cbnZpZXdvZiBzaWdtYSA9IElucHV0cy5yYW5nZShbMC4xLCAzXSwge1xuICBzdGVwOiAwLjEsIFxuICB2YWx1ZTogMSwgXG4gIGxhYmVsOiB0ZXhgXFx0ZXh0e3NjYWxlOiB9XFxzaWdtYWAsXG4gIHdpZHRoOiBcIjQ1MHB4XCJcbn0pXG5cbi8vIEFycmFuZ2Ugc2xpZGVycyBzaWRlIGJ5IHNpZGVcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGdhcDogMTAwcHg7IG1hcmdpbi1ib3R0b206IDUwcHg7XCI+XG4gICR7dmlld29mIG11fVxuICAke3ZpZXdvZiBzaWdtYX1cbjwvZGl2PmBcblxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGRvbWFpbjogWzAsIDFdLFxuICAgIGxhYmVsOiBcIkYoeClcIlxuICB9LFxuICB4OiB7XG4gICAgZG9tYWluOiBbLTQsIDRdLFxuICAgIGxhYmVsOiBcInhcIlxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShcbiAgICAgIGQzLnJhbmdlKC00LCA0LjAxLCAwLjAxKS5tYXAoeCA9PiAoe3gsIHk6IGpTdGF0Lm5vcm1hbC5jZGYoeCwgbXUsIHNpZ21hKX0pKSxcbiAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCJ9XG4gICAgKVxuICBdLFxuICBncmlkOiB0cnVlLFxuICBoZWlnaHQ6IDUwMCxcbiAgd2lkdGg6IDEwNTAsXG4gIHN0eWxlOiB7XG4gICAgYmFja2dyb3VuZENvbG9yOiBcIndoaXRlXCJcbiAgfVxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gQ3JlYXRlIHNsaWRlcnMgd2l0aCBzbWFsbGVyIHRleHQgc2l6ZVxudmlld29mIG11MiA9IElucHV0cy5yYW5nZShbLTMsIDNdLCB7XG4gIHN0ZXA6IDAuMSwgXG4gIHZhbHVlOiAwLCBcbiAgbGFiZWw6IHRleGBcXHRleHR7bG9jOiB9XFxtdWAsXG4gIHdpZHRoOiBcIjQ1MHB4XCJcbn0pXG5cbnZpZXdvZiBzaWdtYTIgPSBJbnB1dHMucmFuZ2UoWzAuMSwgM10sIHtcbiAgc3RlcDogMC4xLCBcbiAgdmFsdWU6IDEsIFxuICBsYWJlbDogdGV4YFxcdGV4dHtzY2FsZTogfVxcc2lnbWFgLFxuICB3aWR0aDogXCI0NTBweFwiXG59KVxuXG4vLyBBcnJhbmdlIHNsaWRlcnMgc2lkZSBieSBzaWRlXG5odG1sYDxkaXYgc3R5bGU9XCJkaXNwbGF5OiBmbGV4OyBnYXA6IDEwMHB4OyBtYXJnaW4tYm90dG9tOiA1MHB4O1wiPlxuICAke3ZpZXdvZiBtdTJ9XG4gICR7dmlld29mIHNpZ21hMn1cbjwvZGl2PmBcblxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGRvbWFpbjogWy0yLjUsIDIuNV0sXG4gICAgbGFiZWw6IFwieFwiXG4gIH0sXG4gIHg6IHtcbiAgICBkb21haW46IFswLjAwMSwgMC45OTldLFxuICAgIGxhYmVsOiBcIkYoeClcIlxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShcbiAgICAgIGQzLnJhbmdlKDAsIDEuMDEsIDAuMDEpLm1hcCh5ID0+ICh7eDogeSwgeTogalN0YXQubm9ybWFsLmludih5LCBtdTIsIHNpZ21hMil9KSksXG4gICAgICB7eDogXCJ4XCIsIHk6IFwieVwifVxuICAgIClcbiAgXSxcbiAgZ3JpZDogdHJ1ZSxcbiAgaGVpZ2h0OiA1MDAsXG4gIHdpZHRoOiAxMDUwLFxuICBzdHlsZToge1xuICAgIGJhY2tncm91bmRDb2xvcjogXCJ3aGl0ZVwiXG4gIH1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBDcmVhdGUgc2xpZGVycyB3aXRoIHNtYWxsZXIgdGV4dCBzaXplXG52aWV3b2YgbXUzID0gSW5wdXRzLnJhbmdlKFstMywgM10sIHtcbiAgc3RlcDogMC4xLCBcbiAgdmFsdWU6IDAsIFxuICBsYWJlbDogdGV4YFxcdGV4dHtsb2M6IH1cXG11YCxcbiAgd2lkdGg6IFwiNDUwcHhcIlxufSlcblxudmlld29mIHNpZ21hMyA9IElucHV0cy5yYW5nZShbMC4xLCAzXSwge1xuICBzdGVwOiAwLjEsIFxuICB2YWx1ZTogMSwgXG4gIGxhYmVsOiB0ZXhgXFx0ZXh0e3NjYWxlOiB9XFxzaWdtYWAsXG4gIHdpZHRoOiBcIjQ1MHB4XCJcbn0pXG5cbi8vIEFycmFuZ2Ugc2xpZGVycyBzaWRlIGJ5IHNpZGVcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGdhcDogMTAwcHg7IG1hcmdpbi1ib3R0b206IDUwcHg7XCI+XG4gICR7dmlld29mIG11M31cbiAgJHt2aWV3b2Ygc2lnbWEzfVxuPC9kaXY+YFxuXG5QbG90LnBsb3Qoe1xuICB5OiB7XG4gICAgZG9tYWluOiBbMCwgMC41XSxcbiAgICBsYWJlbDogXCJmKHgpXCJcbiAgfSxcbiAgeDoge1xuICAgIGRvbWFpbjogWy00LCA0XSxcbiAgICBsYWJlbDogXCJ4XCJcbiAgfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUoXG4gICAgICBkMy5yYW5nZSgtNCwgNC4wMSwgMC4wMSkubWFwKHggPT4gKHt4LCB5OiBqU3RhdC5ub3JtYWwucGRmKHgsIG11Mywgc2lnbWEzKX0pKSxcbiAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCJ9XG4gICAgKVxuICBdLFxuICBncmlkOiB0cnVlLFxuICBoZWlnaHQ6IDUwMCxcbiAgd2lkdGg6IDEwNTAsXG4gIHN0eWxlOiB7XG4gICAgYmFja2dyb3VuZENvbG9yOiBcIndoaXRlXCJcbiAgfVxufSlcblxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBDcmVhdGUgc2xpZGVycyB3aXRoIHNtYWxsZXIgdGV4dCBzaXplXG52aWV3b2YgbXU0ID0gSW5wdXRzLnJhbmdlKFstMywgM10sIHtcbiAgc3RlcDogMC4wMSwgXG4gIHZhbHVlOiAwLCBcbiAgbGFiZWw6IHRleGBcXGJhcntYfTpgLFxuICB3aWR0aDogXCIzMDBweFwiXG59KVxuXG52aWV3b2Ygc2lnbWE0ID0gSW5wdXRzLnJhbmdlKFsxLCAxMF0sIHtcbiAgc3RlcDogMC4xLCBcbiAgdmFsdWU6IDUsIFxuICBsYWJlbDogdGV4YFxcc2lnbWE6YCxcbiAgd2lkdGg6IFwiMzAwcHhcIlxufSlcblxuXG52aWV3b2Ygc2FtcGxlVCA9IElucHV0cy5yYW5nZShbMTAsIDEwMF0sIHtcbiAgc3RlcDogMSwgXG4gIHZhbHVlOiAzMCwgXG4gIGxhYmVsOiB0ZXhgVDpgLFxuICB3aWR0aDogXCIzMDBweFwiXG59KVxuXG52aWV3b2YgYWxwaGEgPSBJbnB1dHMucmFuZ2UoWzAsIDAuNF0sIHtcbiAgc3RlcDogMC4wMSwgXG4gIHZhbHVlOiAwLjA1LCBcbiAgbGFiZWw6IHRleGBcXGFscGhhOmAsXG4gIHdpZHRoOiBcIjMwMHB4XCJcbn0pXG5cbi8vIEFycmFuZ2Ugc2xpZGVycyBzaWRlIGJ5IHNpZGVcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGdhcDogNjBweDsgbWFyZ2luLWJvdHRvbTogNTBweDtcIj5cbiAgJHt2aWV3b2YgbXU0fVxuICAke3ZpZXdvZiBzaWdtYTR9XG48L2Rpdj48ZGl2IHN0eWxlPVwiZGlzcGxheTogZmxleDsgZ2FwOiA2MHB4OyBtYXJnaW4tYm90dG9tOiA1MHB4O1wiPlxuICAke3ZpZXdvZiBzYW1wbGVUfVxuICAke3ZpZXdvZiBhbHBoYX1cbjwvZGl2PmBcblxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGRvbWFpbjogWzAsIDVdLFxuICAgIGxhYmVsOiBcImYoeClcIlxuICB9LFxuICB4OiB7XG4gICAgZG9tYWluOiBbLTEuNSwgMS41XSxcbiAgICBsYWJlbDogXCJ4XCJcbiAgfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUoXG4gICAgICBbe3g6IG11NCwgeTogMH0se3g6IG11NCwgeTogalN0YXQubm9ybWFsLnBkZigwLCAwLCBzaWdtYTQvc2FtcGxlVCl9XSxcbiAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCIsIHN0cm9rZTogXCJyZWRcIn1cbiAgICApLFxuICAgIFBsb3QubGluZShcbiAgICAgIGQzLnJhbmdlKC0xLjUsIDEuNSwgMC4wMSkubWFwKHggPT4gKHt4LCB5OiBqU3RhdC5ub3JtYWwucGRmKHgsIG11NCwgc2lnbWE0L3NhbXBsZVQpfSkpLFxuICAgICAge3g6IFwieFwiLCB5OiBcInlcIn1cbiAgICApLFxuICAgIFBsb3QuYXJlYVkoXG4gICAgICBkMy5yYW5nZShtdTQgLSBqU3RhdC5ub3JtYWwuaW52KDEgLSBhbHBoYSAvIDIsIDAsIDEpICogc2lnbWE0LyBzYW1wbGVULCBtdTQgKyBqU3RhdC5ub3JtYWwuaW52KDEgLSBhbHBoYSAvIDIsIDAsIDEpICogc2lnbWE0L3NhbXBsZVQsIDAuMDEpLm1hcCh4ID0+ICh7eCwgeTogalN0YXQubm9ybWFsLnBkZih4LCBtdTQsIHNpZ21hNC9zYW1wbGVUKX0pKSxcbiAgICAgIHt4OiBcInhcIiwgeTogXCJ5XCIsIGZpbGxPcGFjaXR5OiAwLjMsIGZpbGw6IFwiIzAwNzJjZVwifVxuICAgICksXG4gIF0sXG4gIGdyaWQ6IHRydWUsXG4gIGhlaWdodDogNDUwLFxuICB3aWR0aDogMTA1MCxcbiAgc3R5bGU6IHtcbiAgICBiYWNrZ3JvdW5kQ29sb3I6IFwid2hpdGVcIlxuICB9XG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gSW1wb3J0IHJlcXVpcmVkIGxpYnJhcmllc1xuLy8gQ3JlYXRlIHNsaWRlcnMgd2l0aCBzbWFsbGVyIHRleHQgc2l6ZVxudmlld29mIG51bVRlc3RzID0gSW5wdXRzLnJhbmdlKFsxLCAxMDBdLCB7XG4gIHN0ZXA6IDEsIFxuICB2YWx1ZTogMTAsIFxuICBsYWJlbDogdGV4YE5gLFxuICB3aWR0aDogXCI0NTBweFwiXG59KVxuXG52aWV3b2YgYWxwaGEyID0gSW5wdXRzLnJhbmdlKFswLjAxLCAwLjFdLCB7XG4gIHN0ZXA6IDAuMDEsIFxuICB2YWx1ZTogMC4wNSwgXG4gIGxhYmVsOiB0ZXhgXFxhbHBoYWAsXG4gIHdpZHRoOiBcIjQ1MHB4XCJcbn0pXG5cbi8vIEFycmFuZ2Ugc2xpZGVycyBzaWRlIGJ5IHNpZGVcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGdhcDogMjAwcHg7IG1hcmdpbi1ib3R0b206IDIwcHg7XCI+XG4gICR7dmlld29mIG51bVRlc3RzfVxuICAke3ZpZXdvZiBhbHBoYTJ9XG48L2Rpdj5gXG5cbi8vIENhbGN1bGF0ZSB0aGUgQm9uZmVycm9uaSBhZGp1c3RlZCBzaWduaWZpY2FuY2UgbGV2ZWxcbmJvbmZlcnJvbmlBbHBoYSA9IGFscGhhMiAvIG51bVRlc3RzO1xuXG4vLyBEaXNwbGF5IHRoZSBhZGp1c3RlZCBzaWduaWZpY2FuY2UgbGV2ZWxcbmh0bWxgPGRpdiBzdHlsZT1cImRpc3BsYXk6IGZsZXg7IGdhcDogMTAwcHg7IG1hcmdpbi1ib3R0b206IDIwcHg7XCI+XG4gIDxwPjxkaXY+Qm9uZmVycm9uaS1BZGp1c3RlZCAke3RleGBcXGFscGhhYH06ICR7Ym9uZmVycm9uaUFscGhhLnRvRml4ZWQoNCl9PC9kaXY+PGRpdj4gJHt0ZXhgMS1cXGxlZnQoICAxLVxcYWxwaGFcXHJpZ2h0KV5OPWB9ICR7KDEgLSBNYXRoLnBvdygxIC0gYWxwaGEyLCBudW1UZXN0cykpLnRvRml4ZWQoNCl9PC9kaXY+PC9wPlxuPC9kaXY+YFxuXG4vLyBHZW5lcmF0ZSByYW5kb20gcC12YWx1ZXMgZm9yIGlsbHVzdHJhdGlvblxucFZhbHVlcyA9IGQzLnJhbmdlKG51bVRlc3RzKS5tYXAoKCkgPT4gTWF0aC5yYW5kb20oKSk7XG5cbi8vIFBsb3QgdGhlIHAtdmFsdWVzIGFuZCB0aGUgc2lnbmlmaWNhbmNlIHRocmVzaG9sZHNcblBsb3QucGxvdCh7XG4gIHk6IHtcbiAgICBkb21haW46IFswLCAxXSxcbiAgICBsYWJlbDogXCJwLXZhbHVlXCJcbiAgfSxcbiAgeDoge1xuICAgIGRvbWFpbjogWzEsIG51bVRlc3RzXSxcbiAgICBsYWJlbDogXCJUZXN0IE51bWJlclwiXG4gIH0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5ydWxlWShbYWxwaGEyXSwge3N0cm9rZTogXCJyZWRcIiwgc3Ryb2tlV2lkdGg6IDIsIHN0cm9rZURhc2hhcnJheTogXCI0IDRcIiwgbGFiZWw6IFwiYWxwaGFcIn0pLFxuICAgIFBsb3QucnVsZVkoW2JvbmZlcnJvbmlBbHBoYV0sIHtzdHJva2U6IFwiYmx1ZVwiLCBzdHJva2VXaWR0aDogMiwgc3Ryb2tlRGFzaGFycmF5OiBcIjQgNFwiLCBsYWJlbDogXCJCb25mZXJyb25pIGFscGhhXCJ9KSxcbiAgICBQbG90LmRvdChwVmFsdWVzLm1hcCgocCwgaSkgPT4gKHt4OiBpICsgMSwgeTogcH0pKSwge3g6IFwieFwiLCB5OiBcInlcIn0pXG4gIF0sXG4gIGdyaWQ6IHRydWUsXG4gIGhlaWdodDogNTAwLFxuICB3aWR0aDogMTA1MCxcbiAgc3R5bGU6IHtcbiAgICBiYWNrZ3JvdW5kQ29sb3I6IFwid2hpdGVcIlxuICB9XG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gSW1wb3J0IHJlcXVpcmVkIGxpYnJhcmllc1xuLy8gR2VuZXJhdGUgc2FtcGxlIGRhdGFcbmRhdGEgPSBkMy5yYW5nZSg1MCkubWFwKCgpID0+IGpTdGF0Lm5vcm1hbC5zYW1wbGUoMCwgMSkpXG5cbi8vIENyZWF0ZSBhIHNsaWRlciBmb3IgYmFuZHdpZHRoXG52aWV3b2YgYmFuZHdpZHRoID0gSW5wdXRzLnJhbmdlKFswLjAyLCAxXSwge1xuICBzdGVwOiAwLjAyLCBcbiAgdmFsdWU6IDAuNCwgXG4gIGxhYmVsOiB0ZXhgYmAsXG4gIHdpZHRoOiBcIjYwMHB4XCJcbn0pXG5cbi8vIEZ1bmN0aW9uIHRvIGNhbGN1bGF0ZSBLREVcbmZ1bmN0aW9uIGtkZShkYXRhLCBiYW5kd2lkdGgpIHtcbiAgY29uc3Qga2VybmVsID0geCA9PiBNYXRoLmV4cCgtMC41ICogeCAqIHgpIC8gTWF0aC5zcXJ0KDIgKiBNYXRoLlBJKVxuICBjb25zdCBzY2FsZSA9IDEgLyAoZGF0YS5sZW5ndGggKiBiYW5kd2lkdGgpXG4gIHJldHVybiBkMy5yYW5nZSgtMywgMywgMC4wMSkubWFwKHggPT4gKHtcbiAgICB4LFxuICAgIHk6IGQzLnN1bShkYXRhLCBkID0+IGtlcm5lbCgoeCAtIGQpIC8gYmFuZHdpZHRoKSkgKiBzY2FsZVxuICB9KSlcbn1cblxuLy8gUGxvdCB0aGUgS0RFIHdpdGggdmFyaWFibGUgYmFuZHdpZHRoXG5QbG90LnBsb3Qoe1xuICB5OiB7XG4gICAgbGFiZWw6IFwiRGVuc2l0eVwiXG4gIH0sXG4gIHg6IHtcbiAgICBsYWJlbDogXCJWYWx1ZVwiXG4gIH0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5saW5lKGtkZShkYXRhLCBiYW5kd2lkdGgpLCB7eDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwicmVkXCIsIHN0cm9rZVdpZHRoOiAyfSlcbiAgXSxcbiAgZ3JpZDogdHJ1ZSxcbiAgaGVpZ2h0OiA1MDAsXG4gIHdpZHRoOiAxMDUwLFxuICBzdHlsZToge1xuICAgIGJhY2tncm91bmRDb2xvcjogXCJ3aGl0ZVwiXG4gIH1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ211JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3NpZ21hJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ211MicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzaWdtYTInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnbXUzJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3NpZ21hMycpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdtdTQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc2lnbWE0JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3NhbXBsZVQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYWxwaGEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnbnVtVGVzdHMnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYWxwaGEyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2JhbmR3aWR0aCcpIn1dfQ==
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../..";
+    window._ojs.paths.runtimeToRoot = "../../../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
