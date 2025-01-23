@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="seance06_files/libs/revealjs/dist/theme/quarto-bd69ca8dc37812ab781c15ce480bea9d.css">
+  <link rel="stylesheet" href="seance06_files/libs/revealjs/dist/theme/quarto-c87e1ac64da212655adbce24386e8be8.css">
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -227,6 +227,7 @@
   </style>
   <script type="module" src="seance06_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="seance06_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -602,7 +603,7 @@ f\left(  x,y\right)  =f_{x}\left(x\right)  \cdot f_{y}\left(  y\right)
 </section>
 <section id="fx-fy-et-fxy" class="slide level2" data-transition="fade-out slide-in">
 <h2><span class="math inline">f(x)</span>, <span class="math inline">f(y)</span>, et <span class="math inline">f(x,y)</span></h2>
-<div id="eb2ab65b" class="cell" data-execution_count="1">
+<div id="18bd6ef6" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -614,7 +615,7 @@ f\left(  x,y\right)  =f_{x}\left(x\right)  \cdot f_{y}\left(  y\right)
 </section>
 <section id="fy-x-40" class="slide level2" data-transition="fade-out fade-in">
 <h2><span class="math inline">f(y | x = 40)</span></h2>
-<div id="f66d871f" class="cell" data-execution_count="2">
+<div id="8701f4a0" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -626,7 +627,7 @@ f\left(  x,y\right)  =f_{x}\left(x\right)  \cdot f_{y}\left(  y\right)
 </section>
 <section id="fx-y-20" class="slide level2" data-transition="fade-in slide-out">
 <h2><span class="math inline">f(x | y = 20)</span></h2>
-<div id="5daf20b1" class="cell" data-execution_count="3">
+<div id="43acee0a" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -987,7 +988,7 @@ E\left(  \overline{X}\right)  =\mu\text{ et }Var\left(  \overline{X}\right)
 
 </div>
 <ul>
-<li>Nous simulons <span class="math inline">T=10,000</span> tirages d’une distribution log-normale avec une moyenne <span class="math inline">\mu=0</span> et une variance <span class="math inline">\sigma^{2}=1</span>.</li>
+<li>Nous simulons <span class="math inline">T=10,000</span> tirages d’une distribution log-normale <span class="math inline">\sim e^{N(\mu,\sigma)}</span>.<sup>1</sup></li>
 </ul>
 <div style="height: 1em;">
 
@@ -1016,10 +1017,10 @@ E\left(  \overline{X}\right)  =\mu\text{ et }Var\left(  \overline{X}\right)
 <li>L’écart-type est <span class="math inline">\sqrt{e^2 - e}\approx 2.16</span>.</li>
 </ul></li>
 </ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>La distribution log-normale est une distribution continue de probabilité d’une variable aléatoire dont le logarithme est normalement distribué. Les deux paramètres de la distribution, <span class="math inline">\mu</span> et <span class="math inline">\sigma</span>, sont la moyenne et l’écart-type du logarithme de la variable, respectivement.</p></li></ol></aside></section>
 <section id="échantillons-de-25-observations" class="slide level2" data-transition="fade-out slide-in">
 <h2>400 échantillons de 25 observations</h2>
-<div id="83eb5eae" class="cell" data-execution_count="4">
+<div id="bf42363a" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1031,7 +1032,7 @@ E\left(  \overline{X}\right)  =\mu\text{ et }Var\left(  \overline{X}\right)
 </section>
 <section id="échantillons-de-100-observations" class="slide level2" data-transition="fade-out fade-in">
 <h2>100 échantillons de 100 observations</h2>
-<div id="ff76e012" class="cell" data-execution_count="5">
+<div id="d82f5bcd" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1043,7 +1044,7 @@ E\left(  \overline{X}\right)  =\mu\text{ et }Var\left(  \overline{X}\right)
 </section>
 <section id="échantillons-de-400-observations" class="slide level2" data-transition="fade-out fade-in">
 <h2>25 échantillons de 400 observations</h2>
-<div id="00caa4b7" class="cell" data-execution_count="6">
+<div id="67430d8a" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1055,7 +1056,7 @@ E\left(  \overline{X}\right)  =\mu\text{ et }Var\left(  \overline{X}\right)
 </section>
 <section id="se-rapprocher-à-un-taux-de-n" class="slide level2" data-transition="slide-out fade-in">
 <h2>Se rapprocher à un taux de √N</h2>
-<div id="765de8e0" class="cell" data-execution_count="7">
+<div id="1face20d" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1429,7 +1430,7 @@ H_{0}  &amp; :\mu=\mu_{0};\text{ \ \ \ }H_{A}:\mu\neq\mu_{0}%
 <li>Si <span class="math inline">\widehat{\alpha}_{momentum}=0.1\%</span> et nous rejetons l’hypothèse nulle : <span class="math inline">H_{0}:{\alpha}_{momentum}=0</span>, la performance est statistiquement significative, mais pas économiquement.</li>
 <li>Si <span class="math inline">\widehat{\alpha}_{secret}=22\%</span> et que nous ne rejetons pas l’hypothèse nulle, la performance est toujours économiquement significative (et notre test manque de puissance).</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>La signification <em>finance</em> de <span class="math inline">\alpha</span> ; ne pas confondre avec le niveau de signification discuté dans les diapositives précédentes.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>La signification <em>finance</em> de <span class="math inline">\alpha</span> ; ne pas confondre avec le niveau de signification discuté dans les diapositives précédentes.</p></li></ol></aside></section>
 <section id="p-values-contexte" class="slide level2">
 <h2><span class="math inline">p</span>-values : Contexte</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -1675,25 +1676,25 @@ H_{0}^{(i)}:\mu_{i}=0,\text{ }i=1,...,N
 <section id="tests-de-bonferroni-2" class="slide level2">
 <h2>Tests de Bonferroni</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1520" data-source-offset="-98"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1519;"><span id="cb9-1520"><a href=""></a>viewof numTests <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {</span>
-<span id="cb9-1521"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
-<span id="cb9-1522"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> </span>
-<span id="cb9-1523"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`N`</span><span class="op">,</span></span>
-<span id="cb9-1524"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
-<span id="cb9-1525"><a href=""></a>})</span>
-<span id="cb9-1526"><a href=""></a></span>
-<span id="cb9-1527"><a href=""></a>viewof alpha2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.1</span>]<span class="op">,</span> {</span>
-<span id="cb9-1528"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> </span>
-<span id="cb9-1529"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> </span>
-<span id="cb9-1530"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="op">,</span></span>
-<span id="cb9-1531"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
-<span id="cb9-1532"><a href=""></a>})</span>
-<span id="cb9-1533"><a href=""></a></span>
-<span id="cb9-1534"><a href=""></a><span class="co">// Disposer les curseurs côte à côte</span></span>
-<span id="cb9-1535"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 200px; margin-bottom: 20px;"&gt;</span></span>
-<span id="cb9-1536"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof numTests<span class="sc">}</span></span>
-<span id="cb9-1537"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof alpha2<span class="sc">}</span></span>
-<span id="cb9-1538"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1519" data-source-offset="-98"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1518;"><span id="cb9-1519"><a href=""></a>viewof numTests <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {</span>
+<span id="cb9-1520"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb9-1521"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> </span>
+<span id="cb9-1522"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`N`</span><span class="op">,</span></span>
+<span id="cb9-1523"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb9-1524"><a href=""></a>})</span>
+<span id="cb9-1525"><a href=""></a></span>
+<span id="cb9-1526"><a href=""></a>viewof alpha2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.1</span>]<span class="op">,</span> {</span>
+<span id="cb9-1527"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> </span>
+<span id="cb9-1528"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span> </span>
+<span id="cb9-1529"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="op">,</span></span>
+<span id="cb9-1530"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"450px"</span></span>
+<span id="cb9-1531"><a href=""></a>})</span>
+<span id="cb9-1532"><a href=""></a></span>
+<span id="cb9-1533"><a href=""></a><span class="co">// Disposer les curseurs côte à côte</span></span>
+<span id="cb9-1534"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 200px; margin-bottom: 20px;"&gt;</span></span>
+<span id="cb9-1535"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof numTests<span class="sc">}</span></span>
+<span id="cb9-1536"><a href=""></a><span class="vs">  </span><span class="sc">${</span>viewof alpha2<span class="sc">}</span></span>
+<span id="cb9-1537"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -1715,12 +1716,12 @@ H_{0}^{(i)}:\mu_{i}=0,\text{ }i=1,...,N
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1541" data-source-offset="-536"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1540;"><span id="cb10-1541"><a href=""></a>bonferroniAlpha <span class="op">=</span> alpha2 <span class="op">/</span> numTests<span class="op">;</span></span>
-<span id="cb10-1542"><a href=""></a></span>
-<span id="cb10-1543"><a href=""></a><span class="co">// Afficher le niveau de signification ajusté</span></span>
-<span id="cb10-1544"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 20px;"&gt;</span></span>
-<span id="cb10-1545"><a href=""></a><span class="vs">  &lt;p&gt;&lt;div&gt;Bonferroni-Ajusté </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>bonferroniAlpha<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;div&gt; </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`1-</span><span class="sc">\l</span><span class="vs">eft(  1-</span><span class="sc">\a</span><span class="vs">lpha</span><span class="sc">\r</span><span class="vs">ight)^N=`</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>(<span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> alpha2<span class="op">,</span> numTests))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/p&gt;</span></span>
-<span id="cb10-1546"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1540" data-source-offset="-536"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1539;"><span id="cb10-1540"><a href=""></a>bonferroniAlpha <span class="op">=</span> alpha2 <span class="op">/</span> numTests<span class="op">;</span></span>
+<span id="cb10-1541"><a href=""></a></span>
+<span id="cb10-1542"><a href=""></a><span class="co">// Afficher le niveau de signification ajusté</span></span>
+<span id="cb10-1543"><a href=""></a><span class="fu">html</span><span class="vs">`&lt;div style="display: flex; gap: 100px; margin-bottom: 20px;"&gt;</span></span>
+<span id="cb10-1544"><a href=""></a><span class="vs">  &lt;p&gt;&lt;div&gt;Bonferroni-Ajusté </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`</span><span class="sc">\a</span><span class="vs">lpha`</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>bonferroniAlpha<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;div&gt; </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`1-</span><span class="sc">\l</span><span class="vs">eft(  1-</span><span class="sc">\a</span><span class="vs">lpha</span><span class="sc">\r</span><span class="vs">ight)^N=`</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>(<span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> alpha2<span class="op">,</span> numTests))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/div&gt;&lt;/p&gt;</span></span>
+<span id="cb10-1545"><a href=""></a><span class="vs">&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-4" data-nodetype="declaration">
@@ -1735,30 +1736,30 @@ H_{0}^{(i)}:\mu_{i}=0,\text{ }i=1,...,N
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1549" data-source-offset="-933"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1548;"><span id="cb11-1549"><a href=""></a>pValues <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(numTests)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())<span class="op">;</span></span>
-<span id="cb11-1550"><a href=""></a></span>
-<span id="cb11-1551"><a href=""></a><span class="co">// Tracer les p-valeurs et les seuils de signification</span></span>
-<span id="cb11-1552"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb11-1553"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb11-1554"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
-<span id="cb11-1555"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"p-valeur"</span></span>
-<span id="cb11-1556"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb11-1557"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb11-1558"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> numTests]<span class="op">,</span></span>
-<span id="cb11-1559"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Numéro de Test"</span></span>
-<span id="cb11-1560"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb11-1561"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb11-1562"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([alpha2]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"alpha"</span>})<span class="op">,</span></span>
-<span id="cb11-1563"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([bonferroniAlpha]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"blue"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bonferroni alpha"</span>})<span class="op">,</span></span>
-<span id="cb11-1564"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(pValues<span class="op">.</span><span class="fu">map</span>((p<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> p}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>})</span>
-<span id="cb11-1565"><a href=""></a>  ]<span class="op">,</span></span>
-<span id="cb11-1566"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb11-1567"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb11-1568"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
-<span id="cb11-1569"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
-<span id="cb11-1570"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
-<span id="cb11-1571"><a href=""></a>  }</span>
-<span id="cb11-1572"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1548" data-source-offset="-933"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1547;"><span id="cb11-1548"><a href=""></a>pValues <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(numTests)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())<span class="op">;</span></span>
+<span id="cb11-1549"><a href=""></a></span>
+<span id="cb11-1550"><a href=""></a><span class="co">// Tracer les p-valeurs et les seuils de signification</span></span>
+<span id="cb11-1551"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb11-1552"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb11-1553"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb11-1554"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"p-valeur"</span></span>
+<span id="cb11-1555"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb11-1556"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb11-1557"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> numTests]<span class="op">,</span></span>
+<span id="cb11-1558"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Numéro de Test"</span></span>
+<span id="cb11-1559"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb11-1560"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb11-1561"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([alpha2]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"alpha"</span>})<span class="op">,</span></span>
+<span id="cb11-1562"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([bonferroniAlpha]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"blue"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4 4"</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bonferroni alpha"</span>})<span class="op">,</span></span>
+<span id="cb11-1563"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(pValues<span class="op">.</span><span class="fu">map</span>((p<span class="op">,</span> i) <span class="kw">=&gt;</span> ({<span class="dt">x</span><span class="op">:</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> p}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span>})</span>
+<span id="cb11-1564"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb11-1565"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb11-1566"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb11-1567"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb11-1568"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb11-1569"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb11-1570"><a href=""></a>  }</span>
+<span id="cb11-1571"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-6" data-nodetype="declaration">
@@ -1836,7 +1837,7 @@ q = \sum_{i=1}^{K}\frac{T\left(  b_{i}-e_{i}\right)  ^{2}}{e_{i}} \sim \chi^{2}(
 <section id="tests-dadéquation" class="slide level2">
 <h2>Tests d’adéquation</h2>
 <h3 id="pearson-1">Pearson</h3>
-<div id="0f3f24fd" class="cell" data-execution_count="8">
+<div id="d2238855" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1881,9 +1882,9 @@ q = \sum_{i=1}^{K}\frac{T\left(  b_{i}-e_{i}\right)  ^{2}}{e_{i}} \sim \chi^{2}(
 <li><span class="math inline">\Rightarrow \widehat{F}\left(x_{i}\right)</span> est la fraction de l’échantillon <span class="math inline">&lt;x_{i}</span>.</li>
 </ul>
 </section>
-<section id="la-cdf-mmpirique-ecdf" class="slide level2">
-<h2>La CDF mmpirique (ECDF)</h2>
-<div id="9d63a914" class="cell" data-execution_count="9">
+<section id="la-cdf-empirique-ecdf-1" class="slide level2">
+<h2>La CDF empirique (ECDF)</h2>
+<div id="0f1d1a4c" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1919,11 +1920,11 @@ D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - \widehat{G}\le
 <section id="tests-dadéquation-2" class="slide level2">
 <h2>Tests d’adéquation</h2>
 <h3 id="kolmogorov-smirnov-ks-1">Kolmogorov-Smirnov (KS)</h3>
-<div id="8c258164" class="cell" data-execution_count="10">
+<div id="05aaeace" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="seance06_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="1114" height="619"></p>
+<p><img data-src="seance06_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="1114" height="582"></p>
 </figure>
 </div>
 </div>
@@ -1984,7 +1985,7 @@ D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - \widehat{G}\le
 <li>Étant donné un échantillon <span class="math inline">\{X_{t}\}</span>, ils tracent les <em>quantiles</em> de <span class="math inline">F\left(  .\right)</span> sur l’axe des x contre <span class="math inline">\widehat{F}\left(  .\right)</span> sur l’axe des y.</li>
 <li>c’est-à-dire <span class="math inline">\{F^{-1}\left(  \widehat{F}\left(  X_{t}\right)  \right)\}</span> sur l’axe des x contre <span class="math inline">X_{t}</span> sur l’axe des y <span class="math inline">\forall t</span>.</li>
 </ul>
-<div id="eb076410" class="cell" data-execution_count="11">
+<div id="264761c7" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2009,7 +2010,7 @@ D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - \widehat{G}\le
 </section>
 <section id="estimateur-de-densité-par-noyau-1" class="slide level2">
 <h2>Estimateur de densité par noyau</h2>
-<div id="07ad4b70" class="cell" data-execution_count="12">
+<div id="473456cc" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2036,44 +2037,44 @@ D = \underset{i}{\sup}\left\vert \widehat{F}\left( x_{i}\right) - \widehat{G}\le
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="2006" data-source-offset="-53"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2005;"><span id="cb12-2006"><a href=""></a>data <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">50</span>)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">sample</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>))</span>
-<span id="cb12-2007"><a href=""></a></span>
-<span id="cb12-2008"><a href=""></a><span class="co">// Create a slider for bandwidth</span></span>
-<span id="cb12-2009"><a href=""></a>viewof bandwidth <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.02</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {</span>
-<span id="cb12-2010"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.02</span><span class="op">,</span> </span>
-<span id="cb12-2011"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span> </span>
-<span id="cb12-2012"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`b`</span><span class="op">,</span></span>
-<span id="cb12-2013"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"600px"</span></span>
-<span id="cb12-2014"><a href=""></a>})</span>
-<span id="cb12-2015"><a href=""></a></span>
-<span id="cb12-2016"><a href=""></a><span class="co">// Function to calculate KDE</span></span>
-<span id="cb12-2017"><a href=""></a><span class="kw">function</span> <span class="fu">kde</span>(data<span class="op">,</span> bandwidth) {</span>
-<span id="cb12-2018"><a href=""></a>  <span class="kw">const</span> kernel <span class="op">=</span> x <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> x <span class="op">*</span> x) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>)</span>
-<span id="cb12-2019"><a href=""></a>  <span class="kw">const</span> scale <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (data<span class="op">.</span><span class="at">length</span> <span class="op">*</span> bandwidth)</span>
-<span id="cb12-2020"><a href=""></a>  <span class="cf">return</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({</span>
-<span id="cb12-2021"><a href=""></a>    x<span class="op">,</span></span>
-<span id="cb12-2022"><a href=""></a>    <span class="dt">y</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">kernel</span>((x <span class="op">-</span> d) <span class="op">/</span> bandwidth)) <span class="op">*</span> scale</span>
-<span id="cb12-2023"><a href=""></a>  }))</span>
-<span id="cb12-2024"><a href=""></a>}</span>
-<span id="cb12-2025"><a href=""></a></span>
-<span id="cb12-2026"><a href=""></a><span class="co">// Plot the KDE with variable bandwidth</span></span>
-<span id="cb12-2027"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb12-2028"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb12-2029"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Density"</span></span>
-<span id="cb12-2030"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb12-2031"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb12-2032"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Value"</span></span>
-<span id="cb12-2033"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb12-2034"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb12-2035"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(<span class="fu">kde</span>(data<span class="op">,</span> bandwidth)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})</span>
-<span id="cb12-2036"><a href=""></a>  ]<span class="op">,</span></span>
-<span id="cb12-2037"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb12-2038"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb12-2039"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
-<span id="cb12-2040"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
-<span id="cb12-2041"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
-<span id="cb12-2042"><a href=""></a>  }</span>
-<span id="cb12-2043"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="2005" data-source-offset="-53"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2004;"><span id="cb12-2005"><a href=""></a>data <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">50</span>)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> jStat<span class="op">.</span><span class="at">normal</span><span class="op">.</span><span class="fu">sample</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>))</span>
+<span id="cb12-2006"><a href=""></a></span>
+<span id="cb12-2007"><a href=""></a><span class="co">// Create a slider for bandwidth</span></span>
+<span id="cb12-2008"><a href=""></a>viewof bandwidth <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.02</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {</span>
+<span id="cb12-2009"><a href=""></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.02</span><span class="op">,</span> </span>
+<span id="cb12-2010"><a href=""></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span> </span>
+<span id="cb12-2011"><a href=""></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`b`</span><span class="op">,</span></span>
+<span id="cb12-2012"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"600px"</span></span>
+<span id="cb12-2013"><a href=""></a>})</span>
+<span id="cb12-2014"><a href=""></a></span>
+<span id="cb12-2015"><a href=""></a><span class="co">// Function to calculate KDE</span></span>
+<span id="cb12-2016"><a href=""></a><span class="kw">function</span> <span class="fu">kde</span>(data<span class="op">,</span> bandwidth) {</span>
+<span id="cb12-2017"><a href=""></a>  <span class="kw">const</span> kernel <span class="op">=</span> x <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> x <span class="op">*</span> x) <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(<span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span>)</span>
+<span id="cb12-2018"><a href=""></a>  <span class="kw">const</span> scale <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (data<span class="op">.</span><span class="at">length</span> <span class="op">*</span> bandwidth)</span>
+<span id="cb12-2019"><a href=""></a>  <span class="cf">return</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="fl">0.01</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({</span>
+<span id="cb12-2020"><a href=""></a>    x<span class="op">,</span></span>
+<span id="cb12-2021"><a href=""></a>    <span class="dt">y</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">kernel</span>((x <span class="op">-</span> d) <span class="op">/</span> bandwidth)) <span class="op">*</span> scale</span>
+<span id="cb12-2022"><a href=""></a>  }))</span>
+<span id="cb12-2023"><a href=""></a>}</span>
+<span id="cb12-2024"><a href=""></a></span>
+<span id="cb12-2025"><a href=""></a><span class="co">// Plot the KDE with variable bandwidth</span></span>
+<span id="cb12-2026"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb12-2027"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb12-2028"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Density"</span></span>
+<span id="cb12-2029"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb12-2030"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb12-2031"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Value"</span></span>
+<span id="cb12-2032"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb12-2033"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb12-2034"><a href=""></a>    Plot<span class="op">.</span><span class="fu">line</span>(<span class="fu">kde</span>(data<span class="op">,</span> bandwidth)<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})</span>
+<span id="cb12-2035"><a href=""></a>  ]<span class="op">,</span></span>
+<span id="cb12-2036"><a href=""></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb12-2037"><a href=""></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb12-2038"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">1050</span><span class="op">,</span></span>
+<span id="cb12-2039"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {</span>
+<span id="cb12-2040"><a href=""></a>    <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"white"</span></span>
+<span id="cb12-2041"><a href=""></a>  }</span>
+<span id="cb12-2042"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
