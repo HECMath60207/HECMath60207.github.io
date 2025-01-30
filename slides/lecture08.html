@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lecture08_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture08_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture08_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture08_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture08_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture08_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture08_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Vincent Grégoire">
+  <meta name="author" content="Saad Ali Khan">
+  <title>MATH60207 - Lecture 8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture08_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture08_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="lecture08_files/libs/revealjs/dist/theme/quarto-c87e1ac64da212655adbce24386e8be8.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="lecture08_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture08_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture08_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture08_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture08_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="lecture08_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">MATH60207 - Lecture 8</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincent Grégoire 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:vincent.gregoire@hec.ca">vincent.gregoire@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Saad Ali Khan 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:saad-ali.khan@hec.ca">saad-ali.khan@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Panel data</li>
+<li>Omitted variables bias</li>
+<li>Fixed effects</li>
+<li>Clustered standard errors</li>
+</ul>
+
+<aside><div>
+<p>Readings:</p>
+<ul>
+<li><span class="citation" data-cites="petersen2008estimating">Petersen (<a href="#/further-reading" role="doc-biblioref" onclick="">2008</a>)</span></li>
+<li><span class="citation" data-cites="baltagi_econometrics_2022">Baltagi (<a href="#/further-reading" role="doc-biblioref" onclick="">2022</a>)</span> chap.&nbsp;12 up to 12.2.1 (inclusive)</li>
+</ul>
+</div></aside></section>
+<section id="panel-data" class="slide level2">
+<h2>Panel Data</h2>
+<h3 id="introduction">Introduction</h3>
+<div style="height: 2em;">
+
+</div>
+<p>A data set is in the form of a “Panel” when we have multiple observations (usually over time) on each individual or unit for each variable.</p>
+<div style="height: 2em;">
+
+</div>
+<p><span class="math inline">Y_{it}\equiv</span> the value of Variable <span class="math inline">Y</span> for individual <span class="math inline">i</span> at time <span class="math inline">t</span><br>
+for <span class="math inline">t=1,\ldots,T</span> and <span class="math inline">i=1,\ldots,N</span></p>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Prices, dividends and earnings series for many stocks</li>
+<li>Bond yield series for various governments or maturities or credit ratings</li>
+<li>Futures price series at various maturities or option prices at various strike prices</li>
+</ul>
+</section>
+<section id="example-sec-midas-litvol000" class="slide level2 smaller">
+<h2>Example: SEC MIDAS LitVol(’000)</h2>
+<div id="74a14e40" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th">Ticker</th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">AA</th>
+<th data-quarto-table-cell-role="th">AACI</th>
+<th data-quarto-table-cell-role="th">AADI</th>
+<th data-quarto-table-cell-role="th">AAGR</th>
+<th data-quarto-table-cell-role="th">AAL</th>
+<th data-quarto-table-cell-role="th">AAMC</th>
+<th data-quarto-table-cell-role="th">AAME</th>
+<th data-quarto-table-cell-role="th">AAN</th>
+<th data-quarto-table-cell-role="th">AAOI</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">ZTEK</th>
+<th data-quarto-table-cell-role="th">ZTS</th>
+<th data-quarto-table-cell-role="th">ZUMZ</th>
+<th data-quarto-table-cell-role="th">ZUO</th>
+<th data-quarto-table-cell-role="th">ZVIA</th>
+<th data-quarto-table-cell-role="th">ZVRA</th>
+<th data-quarto-table-cell-role="th">ZVSA</th>
+<th data-quarto-table-cell-role="th">ZWS</th>
+<th data-quarto-table-cell-role="th">ZYME</th>
+<th data-quarto-table-cell-role="th">ZYXI</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-01</td>
+<td>800.319</td>
+<td>995.683</td>
+<td>0.0</td>
+<td>82.344</td>
+<td>322.091</td>
+<td>8315.465</td>
+<td>2.82</td>
+<td>0.051</td>
+<td>431.808</td>
+<td>737.982</td>
+<td>...</td>
+<td>4.05</td>
+<td>429.642</td>
+<td>173.062</td>
+<td>383.065</td>
+<td>66.869</td>
+<td>180.628</td>
+<td>3.565</td>
+<td>368.583</td>
+<td>70.457</td>
+<td>55.611</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-02</td>
+<td>535.32</td>
+<td>1286.891</td>
+<td>0.0</td>
+<td>186.901</td>
+<td>260.099</td>
+<td>6145.214</td>
+<td>5.266</td>
+<td>1.673</td>
+<td>352.509</td>
+<td>993.449</td>
+<td>...</td>
+<td>5.367</td>
+<td>540.356</td>
+<td>149.839</td>
+<td>327.406</td>
+<td>65.792</td>
+<td>86.322</td>
+<td>0.985</td>
+<td>304.206</td>
+<td>103.186</td>
+<td>50.952</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-03</td>
+<td>353.257</td>
+<td>1647.61</td>
+<td>0.002</td>
+<td>56.845</td>
+<td>116.272</td>
+<td>4710.886</td>
+<td>0.002</td>
+<td>0.064</td>
+<td>119.644</td>
+<td>391.225</td>
+<td>...</td>
+<td>6.211</td>
+<td>349.412</td>
+<td>80.541</td>
+<td>136.898</td>
+<td>54.816</td>
+<td>35.157</td>
+<td>1.181</td>
+<td>215.671</td>
+<td>26.862</td>
+<td>16.952</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-05</td>
+<td>284.856</td>
+<td>822.498</td>
+<td>0.0</td>
+<td>147.106</td>
+<td>329.09</td>
+<td>7176.805</td>
+<td>1.172</td>
+<td>1.604</td>
+<td>228.559</td>
+<td>640.502</td>
+<td>...</td>
+<td>1.898</td>
+<td>358.113</td>
+<td>116.616</td>
+<td>228.105</td>
+<td>65.782</td>
+<td>79.242</td>
+<td>1.78</td>
+<td>203.873</td>
+<td>88.066</td>
+<td>28.105</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-08</td>
+<td>354.793</td>
+<td>1067.206</td>
+<td>0.13</td>
+<td>57.828</td>
+<td>175.742</td>
+<td>8213.584</td>
+<td>1.771</td>
+<td>2.342</td>
+<td>190.217</td>
+<td>980.914</td>
+<td>...</td>
+<td>13.724</td>
+<td>412.357</td>
+<td>112.732</td>
+<td>786.813</td>
+<td>67.608</td>
+<td>89.607</td>
+<td>1.915</td>
+<td>214.391</td>
+<td>126.635</td>
+<td>41.124</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-24</td>
+<td>232.23</td>
+<td>3109.598</td>
+<td>&lt;NA&gt;</td>
+<td>59.912</td>
+<td>53.658</td>
+<td>8101.117</td>
+<td>&lt;NA&gt;</td>
+<td>1.067</td>
+<td>476.413</td>
+<td>2143.362</td>
+<td>...</td>
+<td>0.895</td>
+<td>363.573</td>
+<td>88.349</td>
+<td>268.977</td>
+<td>36.054</td>
+<td>745.519</td>
+<td>10.586</td>
+<td>408.781</td>
+<td>122.893</td>
+<td>23.035</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-25</td>
+<td>280.864</td>
+<td>1593.902</td>
+<td>&lt;NA&gt;</td>
+<td>15.899</td>
+<td>159.98</td>
+<td>7245.156</td>
+<td>&lt;NA&gt;</td>
+<td>0.892</td>
+<td>471.298</td>
+<td>750.111</td>
+<td>...</td>
+<td>5.189</td>
+<td>347.512</td>
+<td>92.502</td>
+<td>209.866</td>
+<td>67.828</td>
+<td>742.23</td>
+<td>14.732</td>
+<td>309.973</td>
+<td>112.524</td>
+<td>20.077</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-26</td>
+<td>484.596</td>
+<td>3132.624</td>
+<td>&lt;NA&gt;</td>
+<td>22.792</td>
+<td>&lt;NA&gt;</td>
+<td>18221.691</td>
+<td>&lt;NA&gt;</td>
+<td>4.106</td>
+<td>934.983</td>
+<td>940.721</td>
+<td>...</td>
+<td>6.941</td>
+<td>324.956</td>
+<td>94.874</td>
+<td>223.132</td>
+<td>31.602</td>
+<td>424.939</td>
+<td>5.25</td>
+<td>336.59</td>
+<td>91.298</td>
+<td>25.922</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-27</td>
+<td>535.44</td>
+<td>1937.906</td>
+<td>&lt;NA&gt;</td>
+<td>34.539</td>
+<td>&lt;NA&gt;</td>
+<td>8583.044</td>
+<td>&lt;NA&gt;</td>
+<td>2.019</td>
+<td>257.512</td>
+<td>1098.977</td>
+<td>...</td>
+<td>6.577</td>
+<td>272.721</td>
+<td>85.594</td>
+<td>324.826</td>
+<td>26.074</td>
+<td>539.017</td>
+<td>28.006</td>
+<td>472.623</td>
+<td>111.826</td>
+<td>43.774</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-30</td>
+<td>392.812</td>
+<td>976.334</td>
+<td>&lt;NA&gt;</td>
+<td>63.99</td>
+<td>&lt;NA&gt;</td>
+<td>7218.296</td>
+<td>&lt;NA&gt;</td>
+<td>3.844</td>
+<td>2921.026</td>
+<td>853.879</td>
+<td>...</td>
+<td>3.356</td>
+<td>369.675</td>
+<td>107.455</td>
+<td>304.86</td>
+<td>38.376</td>
+<td>315.584</td>
+<td>5.785</td>
+<td>347.917</td>
+<td>128.399</td>
+<td>19.274</td>
+</tr>
+</tbody>
+</table>
+
+<p>64 rows × 3981 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="panel-data-sets" class="slide level2">
+<h2>Panel Data sets</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Panel Data sets may be:</p>
+<ul>
+<li><strong>Wide</strong> (big <span class="math inline">N</span>) or <strong>Narrow</strong> (small <span class="math inline">N</span>)<br>
+</li>
+<li><strong>Long</strong> (big <span class="math inline">T</span>) or <strong>Short</strong> (small <span class="math inline">T</span>)<br>
+</li>
+<li><strong>Balanced</strong> <span class="math inline">(T_i = T_j = T \; \forall \; i,j)</span> or <strong>Unbalanced</strong> (Some <span class="math inline">i</span> have more observations than others.)</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>The data in the previous table are:</p>
+<ul>
+<li>Wide <span class="math inline">(N=3981)</span></li>
+<li>Relatively long <span class="math inline">(T=64)</span></li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>Unbalanced Panels are not especially difficult, but the algebra gets messier.<br>
+For that reason, we’ll just talk about Balanced Panels.</p>
+</section>
+<section id="common-effects-and-pooling" class="slide level2">
+<h2>Common Effects and Pooling</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Suppose we want to investigate the impact of corporate cashflows <span class="math inline">CF</span> on corporate investment spending <span class="math inline">I</span>. What does that mean?</p>
+<div style="height: 1em;">
+
+</div>
+<ol type="1">
+<li>Do we want to know how a company’s investment spending responds in periods when cashflow is high?</li>
+</ol>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>That means we’re interested in the <strong>variation over time</strong>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>We could run a time-series regression for each <span class="math inline">i</span>:<br>
+<span class="math display">I_{it}=stuff+\beta_{i}\cdot CF_{it}+e_{it}</span></li>
+</ul>
+</section>
+<section id="midas" class="slide level2 smaller">
+<h2>MIDAS</h2>
+<div id="498cd894" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Security</th>
+<th data-quarto-table-cell-role="th">McapRank</th>
+<th data-quarto-table-cell-role="th">TurnRank</th>
+<th data-quarto-table-cell-role="th">VolatilityRank</th>
+<th data-quarto-table-cell-role="th">PriceRank</th>
+<th data-quarto-table-cell-role="th">LitVol('000)</th>
+<th data-quarto-table-cell-role="th">OrderVol('000)</th>
+<th data-quarto-table-cell-role="th">Hidden</th>
+<th data-quarto-table-cell-role="th">TradesForHidden</th>
+<th data-quarto-table-cell-role="th">HiddenVol('000)</th>
+<th data-quarto-table-cell-role="th">TradeVolForHidden('000)</th>
+<th data-quarto-table-cell-role="th">Cancels</th>
+<th data-quarto-table-cell-role="th">LitTrades</th>
+<th data-quarto-table-cell-role="th">OddLots</th>
+<th data-quarto-table-cell-role="th">TradesForOddLots</th>
+<th data-quarto-table-cell-role="th">OddLotVol('000)</th>
+<th data-quarto-table-cell-role="th">TradeVolForOddLots('000)</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Ticker</th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">A</td>
+<td data-quarto-table-cell-role="th">2024-07-01</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>7.0</td>
+<td>3.0</td>
+<td>9.0</td>
+<td>800.319</td>
+<td>37442.439</td>
+<td>5802.0</td>
+<td>23316.0</td>
+<td>366.567</td>
+<td>1166.886</td>
+<td>274839.0</td>
+<td>17330.0</td>
+<td>17147.0</td>
+<td>23127.0</td>
+<td>396.583</td>
+<td>1161.27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-02</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>6.0</td>
+<td>3.0</td>
+<td>9.0</td>
+<td>535.32</td>
+<td>44473.496</td>
+<td>4714.0</td>
+<td>18956.0</td>
+<td>248.298</td>
+<td>783.618</td>
+<td>309707.0</td>
+<td>14202.0</td>
+<td>15164.0</td>
+<td>18912.0</td>
+<td>324.794</td>
+<td>781.162</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-03</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>7.0</td>
+<td>3.0</td>
+<td>9.0</td>
+<td>353.257</td>
+<td>24631.062</td>
+<td>3832.0</td>
+<td>12598.0</td>
+<td>232.964</td>
+<td>586.221</td>
+<td>160482.0</td>
+<td>8739.0</td>
+<td>9697.0</td>
+<td>12571.0</td>
+<td>231.621</td>
+<td>585.058</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-05</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>9.0</td>
+<td>284.856</td>
+<td>30088.535</td>
+<td>2901.0</td>
+<td>12704.0</td>
+<td>135.068</td>
+<td>419.924</td>
+<td>228535.0</td>
+<td>9772.0</td>
+<td>10699.0</td>
+<td>12672.0</td>
+<td>185.578</td>
+<td>419.138</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-08</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>9.0</td>
+<td>354.793</td>
+<td>24877.289</td>
+<td>3355.0</td>
+<td>13779.0</td>
+<td>180.036</td>
+<td>534.829</td>
+<td>217195.0</td>
+<td>10407.0</td>
+<td>11166.0</td>
+<td>13761.0</td>
+<td>224.297</td>
+<td>533.815</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">ZYXI</td>
+<td data-quarto-table-cell-role="th">2024-09-24</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>23.035</td>
+<td>2757.671</td>
+<td>128.0</td>
+<td>816.0</td>
+<td>4.395</td>
+<td>27.43</td>
+<td>22132.0</td>
+<td>686.0</td>
+<td>694.0</td>
+<td>814.0</td>
+<td>12.818</td>
+<td>27.327</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-25</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>20.077</td>
+<td>2233.598</td>
+<td>105.0</td>
+<td>743.0</td>
+<td>2.271</td>
+<td>22.348</td>
+<td>20306.0</td>
+<td>636.0</td>
+<td>657.0</td>
+<td>741.0</td>
+<td>12.3</td>
+<td>22.329</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-26</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>25.922</td>
+<td>2236.208</td>
+<td>195.0</td>
+<td>870.0</td>
+<td>5.82</td>
+<td>31.742</td>
+<td>20308.0</td>
+<td>669.0</td>
+<td>751.0</td>
+<td>864.0</td>
+<td>16.211</td>
+<td>31.629</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-09-27</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>9.0</td>
+<td>4.0</td>
+<td>43.774</td>
+<td>3139.279</td>
+<td>535.0</td>
+<td>1430.0</td>
+<td>15.749</td>
+<td>59.523</td>
+<td>28486.0</td>
+<td>887.0</td>
+<td>1168.0</td>
+<td>1422.0</td>
+<td>20.682</td>
+<td>59.276</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-09-30</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>6.0</td>
+<td>4.0</td>
+<td>19.274</td>
+<td>2357.55</td>
+<td>72.0</td>
+<td>593.0</td>
+<td>1.699</td>
+<td>20.973</td>
+<td>23045.0</td>
+<td>521.0</td>
+<td>503.0</td>
+<td>593.0</td>
+<td>9.63</td>
+<td>20.973</td>
+</tr>
+</tbody>
+</table>
+
+<p>248961 rows × 17 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="common-effects-and-pooling-1" class="slide level2">
+<h2>Common Effects and Pooling</h2>
+<div style="height: 1em;">
+
+</div>
+<ol start="2" type="1">
+<li>Do we want to know whether companies with higher cashflows tend to invest more than those with lower cashflows?</li>
+</ol>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>That means we’re interested in the <strong>variation across companies</strong>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>We could run a cross-sectional regression for each <span class="math inline">t</span>:<br>
+<span class="math display">I_{it}=stuff+\beta_{t}\cdot CF_{it}+e_{it}</span></li>
+</ul>
+</section>
+<section id="midas-1" class="slide level2 smaller">
+<h2>MIDAS</h2>
+<div id="2b59a810" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Security</th>
+<th data-quarto-table-cell-role="th">McapRank</th>
+<th data-quarto-table-cell-role="th">TurnRank</th>
+<th data-quarto-table-cell-role="th">VolatilityRank</th>
+<th data-quarto-table-cell-role="th">PriceRank</th>
+<th data-quarto-table-cell-role="th">LitVol('000)</th>
+<th data-quarto-table-cell-role="th">OrderVol('000)</th>
+<th data-quarto-table-cell-role="th">Hidden</th>
+<th data-quarto-table-cell-role="th">TradesForHidden</th>
+<th data-quarto-table-cell-role="th">HiddenVol('000)</th>
+<th data-quarto-table-cell-role="th">TradeVolForHidden('000)</th>
+<th data-quarto-table-cell-role="th">Cancels</th>
+<th data-quarto-table-cell-role="th">LitTrades</th>
+<th data-quarto-table-cell-role="th">OddLots</th>
+<th data-quarto-table-cell-role="th">TradesForOddLots</th>
+<th data-quarto-table-cell-role="th">OddLotVol('000)</th>
+<th data-quarto-table-cell-role="th">TradeVolForOddLots('000)</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Ticker</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">2024-07-01</td>
+<td data-quarto-table-cell-role="th">A</td>
+<td>Stock</td>
+<td>10.0</td>
+<td>7.0</td>
+<td>3.0</td>
+<td>9.0</td>
+<td>800.319</td>
+<td>37442.439</td>
+<td>5802.0</td>
+<td>23316.0</td>
+<td>366.567</td>
+<td>1166.886</td>
+<td>274839.0</td>
+<td>17330.0</td>
+<td>17147.0</td>
+<td>23127.0</td>
+<td>396.583</td>
+<td>1161.27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AA</td>
+<td>Stock</td>
+<td>9.0</td>
+<td>9.0</td>
+<td>5.0</td>
+<td>8.0</td>
+<td>995.683</td>
+<td>69573.964</td>
+<td>2350.0</td>
+<td>19386.0</td>
+<td>159.781</td>
+<td>1155.464</td>
+<td>305304.0</td>
+<td>16885.0</td>
+<td>13209.0</td>
+<td>19225.0</td>
+<td>335.835</td>
+<td>1150.461</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AACI</td>
+<td>Stock</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>0.0</td>
+<td>33.711</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>77.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AADI</td>
+<td>Stock</td>
+<td>2.0</td>
+<td>8.0</td>
+<td>6.0</td>
+<td>2.0</td>
+<td>82.344</td>
+<td>2807.266</td>
+<td>216.0</td>
+<td>1105.0</td>
+<td>15.517</td>
+<td>97.861</td>
+<td>13498.0</td>
+<td>883.0</td>
+<td>674.0</td>
+<td>1099.0</td>
+<td>22.437</td>
+<td>97.64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AAGR</td>
+<td>Stock</td>
+<td>1.0</td>
+<td>10.0</td>
+<td>10.0</td>
+<td>1.0</td>
+<td>322.091</td>
+<td>8819.409</td>
+<td>728.0</td>
+<td>1855.0</td>
+<td>177.737</td>
+<td>499.828</td>
+<td>6567.0</td>
+<td>1123.0</td>
+<td>326.0</td>
+<td>1850.0</td>
+<td>11.157</td>
+<td>494.757</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">2024-09-30</td>
+<td data-quarto-table-cell-role="th">ZVRA</td>
+<td>Stock</td>
+<td>5.0</td>
+<td>9.0</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>315.584</td>
+<td>14270.604</td>
+<td>1053.0</td>
+<td>4522.0</td>
+<td>77.934</td>
+<td>393.518</td>
+<td>50675.0</td>
+<td>3456.0</td>
+<td>2760.0</td>
+<td>4508.0</td>
+<td>79.422</td>
+<td>393.229</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ZVSA</td>
+<td>Stock</td>
+<td>1.0</td>
+<td>9.0</td>
+<td>7.0</td>
+<td>2.0</td>
+<td>5.785</td>
+<td>206.686</td>
+<td>15.0</td>
+<td>100.0</td>
+<td>1.118</td>
+<td>6.903</td>
+<td>1260.0</td>
+<td>85.0</td>
+<td>72.0</td>
+<td>100.0</td>
+<td>2.568</td>
+<td>6.903</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ZWS</td>
+<td>Stock</td>
+<td>8.0</td>
+<td>7.0</td>
+<td>2.0</td>
+<td>7.0</td>
+<td>347.917</td>
+<td>20885.803</td>
+<td>1660.0</td>
+<td>8262.0</td>
+<td>89.895</td>
+<td>437.812</td>
+<td>184048.0</td>
+<td>6588.0</td>
+<td>5949.0</td>
+<td>8244.0</td>
+<td>138.253</td>
+<td>436.824</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ZYME</td>
+<td>Stock</td>
+<td>6.0</td>
+<td>8.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>128.399</td>
+<td>7992.542</td>
+<td>887.0</td>
+<td>3718.0</td>
+<td>24.615</td>
+<td>153.014</td>
+<td>75387.0</td>
+<td>2821.0</td>
+<td>2952.0</td>
+<td>3708.0</td>
+<td>60.181</td>
+<td>152.852</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ZYXI</td>
+<td>Stock</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>6.0</td>
+<td>4.0</td>
+<td>19.274</td>
+<td>2357.55</td>
+<td>72.0</td>
+<td>593.0</td>
+<td>1.699</td>
+<td>20.973</td>
+<td>23045.0</td>
+<td>521.0</td>
+<td>503.0</td>
+<td>593.0</td>
+<td>9.63</td>
+<td>20.973</td>
+</tr>
+</tbody>
+</table>
+
+<p>248961 rows × 17 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="common-effects-and-pooling-2" class="slide level2">
+<h2>Common Effects and Pooling</h2>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>What if the first effect is constant across firms?<br>
+</li>
+<li>What if the second effect is constant over time?</li>
+</ul>
+<p>By running <span class="math inline">N</span> or <span class="math inline">T</span> <strong>separate</strong> regressions, we’ll be using our data inefficiently.<br>
+That means standard errors are bigger than necessary.</p>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<ul>
+<li><p>Instead, we could run a regression like<br>
+<span class="math display">I_{it}=stuff+\beta\cdot CF_{it}+e_{it}</span></p></li>
+<li><p>We call that a <strong>Panel Regression</strong>.</p>
+<p>It restricts <span class="math inline">\beta_i = \beta_t = \beta</span></p></li>
+<li><p>We call that the <strong>common effect</strong> or <strong>pooling</strong> restriction.</p></li>
+</ul>
+<p>We can estimate the above regression using OLS simply by <strong>stacking</strong> our data.</p>
+</div>
+</section>
+<section id="stacking-y" class="slide level2">
+<h2>Stacking <span class="math inline">y</span></h2>
+<p><span class="math display">
+\mathbf{y} = \left[\begin{array}{c}y_{1,1}\\ y_{1,2}\\ \vdots  \\ y_{1, T} \\ y_{2,1}\\ y_{2,2}\\ \vdots  \\ y_{2, T}\\ y_{I,1}\\ \vdots  \\ y_{I, T} \end{array} \right]
+</span></p>
+</section>
+<section id="stacking-x" class="slide level2">
+<h2>Stacking <span class="math inline">X</span></h2>
+<p><span class="math display">
+\mathbf{X} = \left[\begin{array}{ccccc}
+x_{1, 1}^{(1)} &amp; x_{1, 1}^{(2)} &amp; \cdots &amp; x_{1, 1}^{(K-1)} &amp; x_{1,1}^{(K)} \\
+x_{1, 2}^{(1)} &amp; x_{1, 2}^{(2)} &amp; \cdots &amp; x_{1, 2}^{(K-1)} &amp; x_{1,2}^{(K)} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+x_{1, T}^{(1)} &amp; x_{1, T}^{(2)} &amp; \cdots &amp; x_{1, T}^{(K-1)} &amp; x_{1,T}^{(K)} \\
+x_{2, 1}^{(1)} &amp; x_{2, 1}^{(2)} &amp; \cdots &amp; x_{2, 1}^{(K-1)} &amp; x_{2,1}^{(K)} \\
+x_{2, 2}^{(1)} &amp; x_{2, 2}^{(2)} &amp; \cdots &amp; x_{2, 2}^{(K-1)} &amp; x_{2,2}^{(K)} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+x_{2, T}^{(1)} &amp; x_{2, T}^{(2)} &amp; \cdots &amp; x_{2, T}^{(K-1)} &amp; x_{2,T}^{(K)} \\
+x_{I, 1}^{(1)} &amp; x_{I, 1}^{(2)} &amp; \cdots &amp; x_{I, 1}^{(K-1)} &amp; x_{I,1}^{(K)} \\
+x_{I, 2}^{(1)} &amp; x_{I, 2}^{(2)} &amp; \cdots &amp; x_{I, 2}^{(K-1)} &amp; x_{I,2}^{(K)} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+x_{I, T}^{(1)} &amp; x_{I, T}^{(2)} &amp; \cdots &amp; x_{I, T}^{(K-1)} &amp; x_{I,T}^{(K)}
+\end{array} \right]
+</span></p>
+</section>
+<section id="pooling-restriction" class="slide level2">
+<h2>Pooling Restriction</h2>
+<div style="height: 1em;">
+
+</div>
+<p>We can test the pooling restriction just like any similar restriction in OLS.</p>
+<p>Suppose we test <span class="math inline">\beta_i = \beta \; \forall i</span>; that’s <span class="math inline">R = N-1</span> restrictions.</p>
+<ul>
+<li>We run our <span class="math inline">N</span> time-series regressions and get <span class="math inline">N</span> different series of residuals <span class="math inline">\{\hat{e}_{i,1}, \ldots, \hat{e}_{i,T}\}</span><br>
+</li>
+<li><span class="math inline">RSS_U \equiv \sum_{i=1}^N ( \sum_{t=1}^T \hat{e}_{i,t}^2 )</span><br>
+</li>
+<li>Then we run one regression on our stacked data and get one series of residuals <span class="math inline">\{\hat{u}_{1}, \ldots, \hat{u}_{N \cdot T}\}</span><br>
+</li>
+<li><span class="math inline">RSS_R \equiv \sum_{t=1}^{N \cdot T} \hat{u}_{t}^2</span><br>
+</li>
+<li>We can then calculate the usual <span class="math inline">F</span>-statistic <span class="math display"> F = \frac{RSS_R - RSS_U}{RSS_U} \cdot \frac{N \cdot (T - k)}{R} \sim F(R,N \cdot (T - k)) \; \text{under} \; H_0 </span> where <span class="math inline">k = 1 +</span> the number of variables in <span class="math inline">stuff</span>.</li>
+</ul>
+</section>
+<section id="omitted-variables-bias" class="slide level2">
+<h2>Omitted Variables Bias</h2>
+<h4 id="a-short-digression">A Short Digression</h4>
+<div style="height: 1em;">
+
+</div>
+<p>Recall our review of OLS, where we mentioned an alternative way to estimate <span class="math inline">\widehat{\beta}_{i}</span>:</p>
+<ol type="1">
+<li>Regress <span class="math inline">y</span> on all the other variables <span class="math inline">X_{j}\neq X_{i}</span> and save the residuals <span class="math inline">\widehat{\varepsilon}_{y}</span>.</li>
+<li>Regress <span class="math inline">X_{i}</span> on all the other variables <span class="math inline">X_{j}\neq X_{i}</span> and save the residuals <span class="math inline">\widehat{\varepsilon}_{x}</span>.</li>
+<li><span class="math inline">\widehat{\beta}_{i}</span> is the coefficient of the regression of <span class="math inline">\widehat{\varepsilon}_{y}</span> on <span class="math inline">\widehat{\varepsilon}_{x}</span>.</li>
+</ol>
+<div style="height: 1em;">
+
+</div>
+<p>This shows that <span class="math inline">\widehat{\beta}_{i}</span> captures the effect of <span class="math inline">X_{i}</span> on <span class="math inline">y</span> <strong>that cannot be accounted for by any other variables</strong> <span class="math inline">X_{j}</span>.</p>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<h3 id="problem">Problem</h3>
+<p>What if we forgot to include an important variable <span class="math inline">X_{j}</span>?<br>
+Then we might have <strong>Omitted Variables Bias</strong>!</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Suppose that the true model is<br>
+<span class="math display">y_{t}=\beta_{X}\cdot X_{t}+\beta_{Z}\cdot Z_{t}+e_{t}</span><br>
+but we omit <span class="math inline">Z_{t}</span> and instead use OLS to estimate <span class="math display">y_{t}=\beta_{X}\cdot X_{t}+e_{t}</span><br>
+Will <span class="math inline">\widehat{\beta}_{X}</span> be biased?</p>
+<p><span class="math display">
+\begin{aligned}
+E(\widehat{\beta}_{X})  &amp;=\operatorname{Cov}\left(  y_{t},X_{t}\right) \cdot\operatorname{Var}\left(  X_{t}\right)^{-1}\\
+&amp;= \operatorname{Cov}\left(  \beta_{X}\cdot X_{t}+\beta_{Z}\cdot Z_{t}+e_{t},X_{t}\right) \cdot\operatorname{Var}\left(  X_{t}\right)^{-1}\\
+&amp;= \left[  \beta_{X}\cdot\operatorname{Var}\left(  X_{t}\right) +\beta_{Z}\cdot\operatorname{Cov}\left(  Z_{t},X_{t}\right) +\operatorname{Cov}\left(  e_{t},X_{t}\right) \right] \cdot\operatorname{Var}\left( X_{t}\right)^{-1}\\
+&amp;= \beta_{X}+\beta_{Z}\cdot\operatorname{Cov}\left(  Z_{t},X_{t}\right)\cdot\operatorname{Var}\left(  X_{t}\right)^{-1}\\
+&amp;= \beta_{X}+\beta_{Z}\cdot\beta_{ZX}
+\end{aligned}
+</span></p>
+<p>Thus, Biased <span class="math inline">\iff \beta_{Z}\cdot\beta_{ZX} \neq 0</span>.</p>
+</section>
+<section id="omitted-variables-bias-1" class="slide level2">
+<h2>Omitted Variables Bias</h2>
+<div style="height: 1em;">
+
+</div>
+<p>We might think that many things other than <span class="math inline">CF</span> influence <span class="math inline">I</span>:</p>
+<ul>
+<li>Firms in capital-intensive industries (e.g.&nbsp;power generation, aerospace manufacturing) might invest more than those in other industries (e.g.&nbsp;fast-food franchises).</li>
+<li>Firms might invest much less than usual in recessions (low demand) or more than usual when interest rates are low.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>If we don’t add additional variables to control for these effects, our estimates of <span class="math inline">\beta</span> may be biased.</p>
+<ul>
+<li>Is <span class="math inline">CF_{it}</span> correlated with the missing variable(s)?</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>That’s why we had <span class="math inline">stuff</span> included in the above panel regressions.</p>
+</section>
+<section id="fixed-effects" class="slide level2">
+<h2>Fixed Effects</h2>
+<div style="height: 2em;">
+
+</div>
+<h4 id="problem-1">Problem</h4>
+<p>What if we don’t have data on the missing variables?</p>
+<div style="height: 1em;">
+
+</div>
+<h4 id="solution">Solution</h4>
+<p>In many (not all) cases, we can add <strong>a set</strong> of dummy variables.<br>
+We call this <strong>Fixed Effects</strong>.</p>
+</section>
+<section id="firm-or-entity-fixed-effects" class="slide level2">
+<h2>Firm (or Entity) Fixed Effects</h2>
+<div style="height: 1em;">
+
+</div>
+<h3 id="case-1">Case 1:</h3>
+<p>The missing variables are constant over <span class="math inline">t</span> but not <span class="math inline">i</span>.</p>
+<ul>
+<li>We can add <span class="math inline">N</span> dummy variables, one for each value of <span class="math inline">i</span>.</li>
+<li>They will capture the overall effect of <strong>all</strong> omitted variables that are constant over time.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<h4 id="example">Example</h4>
+<p>If <span class="math inline">I_{it}</span> depends on <span class="math inline">CF_{it}</span> and on the firm’s industry, these dummy variables will capture the latter effect.</p>
+</section>
+<section id="time-fixed-effects" class="slide level2">
+<h2>Time Fixed Effects</h2>
+<div style="height: 1em;">
+
+</div>
+<h3 id="case-2">Case 2</h3>
+<p>The missing variables are constant over <span class="math inline">i</span> but not <span class="math inline">t</span>.</p>
+<ul>
+<li>We can add <span class="math inline">T</span> dummy variables, one for each time period <span class="math inline">t</span>.<br>
+We call this <strong>Time Fixed Effects</strong>.</li>
+<li>They will capture the overall effect of <strong>all</strong> omitted variables that are the same for all <span class="math inline">i</span>.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<h4 id="example-1">Example</h4>
+<p>If <span class="math inline">I_{it}</span> depends on <span class="math inline">CF_{it}</span> and on GDP growth or the output gap, these dummy variables will capture those effects.</p>
+</section>
+<section id="firm-and-time-fixed-effects" class="slide level2">
+<h2>Firm and Time Fixed Effects</h2>
+<div style="height: 1em;">
+
+</div>
+<h3 id="case-3">Case 3</h3>
+<p>Some missing variables are constant over <span class="math inline">i</span>, others over <span class="math inline">t</span>.</p>
+<ul>
+<li>We can add <span class="math inline">N+T</span> dummy variables, one for each time period <span class="math inline">t</span> <strong>and</strong> one for each value of <span class="math inline">i</span>.</li>
+<li>We have more than enough observations to estimate both! <span class="math inline">(N \cdot T \gg N + T)</span></li>
+</ul>
+</section>
+<section id="fixed-effects-1" class="slide level2">
+<h2>Fixed Effects</h2>
+<div style="height: 2em;">
+
+</div>
+<h3 id="some-points-to-note">Some points to note:</h3>
+<ol type="1">
+<li>Including all <span class="math inline">N</span> or <span class="math inline">T</span> dummies means that we can’t also include a constant!</li>
+<li>Including Time Fixed Effects means that we can’t include any variables that only vary through time (e.g.&nbsp;T-bill rates, returns on market portfolio, etc.)</li>
+<li>We could include a smaller number of dummies if we want. (one per zip code? SIC code? year?)</li>
+<li>Because we’re interested in <span class="math inline">\beta</span>, we don’t usually report the (many!) coefficients on the dummies.</li>
+</ol>
+</section>
+<section id="fixed-effects-2" class="slide level2">
+<h2>Fixed Effects</h2>
+<div style="height: 2em;">
+
+</div>
+<p>The Fixed Effects model looks something like<br>
+<span class="math display">I_{it}=\alpha_{i}+\beta\cdot CF_{it}+e_{it}</span></p>
+<div style="height: 1em;">
+
+</div>
+<p>This is equivalent to using OLS to estimate<br>
+<span class="math display">I_{it}=\left(  \sum_{j=1}^N\alpha_{j}\cdot D_{j}\right) +\beta\cdot CF_{it}+e_{it}</span><br>
+where <span class="math inline">D_{j}=1</span> for firm <span class="math inline">j</span> and <span class="math inline">=0</span> otherwise.</p>
+</section>
+<section id="fixed-effects-3" class="slide level2">
+<h2>Fixed Effects</h2>
+<div style="height: 1em;">
+
+</div>
+<h3 id="fact">Fact</h3>
+<p>That’s not the way Fixed Effects estimates are usually programmed, however.</p>
+<ul>
+<li><p>When <span class="math inline">N</span> is large, our <span class="math inline">X'X</span> matrix is large.</p></li>
+<li><p>Inverting large matrices is relatively slow.</p></li>
+<li><p>To avoid this, we replace each variable with the deviation from its average value <strong>over time</strong>.<br>
+<span class="math display">\tilde{y}_{it} \equiv y_{it} - T^{-1} \cdot \left( \sum_{t=1}^T y_{it} \right)</span></p></li>
+<li><p>OLS on <span class="math inline">\tilde{I}_{it}= \beta\cdot \tilde{CF}_{it}+e_{it}</span> will give identical <span class="math inline">\hat{\beta}, \hat{e}_{it}, etc.</span> as above, but do it much faster!</p></li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<p>That’s one reason why we like to use code optimized for Panel Data.</p>
+</section>
+<section id="estimating-panel-data-models" class="slide level2">
+<h2>Estimating Panel Data Models</h2>
+<div style="height: 2em;">
+
+</div>
+<p><a href="https://bashtage.github.io/linearmodels/"><img data-src="logos/logo-lm.svg" alt="linearmodels" height="75"></a></p>
+<div style="height: 1em;">
+
+</div>
+<p>Python package for estimating linear models in finance and economics:</p>
+<ul>
+<li>By <a href="https://www.kevinsheppard.com/">Kevin Sheppard</a>, University of Oxford</li>
+<li>Panel Data Models with Fixed Effects (PanelOLS)</li>
+<li>Fama-MacBeth Estimation (FamaMacBeth)</li>
+<li>Instrumental Variables models: Two-stage least squares (IV2SLS) - <em>next lecture</em></li>
+<li>Generalized Method of Moments (GMM, IVGMM)</li>
+<li>Asset Pricing Model Estimation and Testing - <em>next course</em></li>
+<li>➕➕➕ many more</li>
+</ul>
+
+<aside><div>
+<p>For details on usage for panel data, see my blog post <a href="https://vincent.codes.finance/posts/panel-ols-standard-errors/">Estimating standard errors in panel data with Python and linearmodels</a></p>
+</div></aside></section>
+<section id="inference" class="slide level2">
+<h2>Inference</h2>
+<h4 id="problem-2">Problem</h4>
+<p>How do we test hypotheses on <span class="math inline">\beta</span>?</p>
+<h4 id="solution-1">Solution</h4>
+<p>Treat as for OLS!</p>
+<div style="height: 1em;">
+
+</div>
+<div class="fragment custom blur">
+<h4 id="problem-3">Problem</h4>
+<p>OLS inference assumes errors are i.i.d.</p>
+<ul>
+<li>That means <span class="math inline">E(e_{it} \cdot e_{jt}) = 0 = E(e_{it} \cdot e_{i\tau}) \quad \forall i \neq j, t \neq \tau</span></li>
+<li>That’s often unrealistic!</li>
+</ul>
+<h4 id="solution-2">Solution</h4>
+<p>That’s often hard!</p>
+<ul>
+<li>If we know the structure of the correlations, we can try to compensate for them (Adding lags, or using ‘Clustered’ standard errors.)</li>
+<li>If we don’t, but <span class="math inline">N, T</span> are “large”, we can use nonparametric corrections.</li>
+</ul>
+</div>
+</section>
+<section id="clustered-standard-errors" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 1em;">
+
+</div>
+<p>We can write the panel regression equation as:</p>
+<p><span class="math display">y_{i,t}=X_{i,t}\beta+\varepsilon_{i,t}</span></p>
+<div style="height: 1em;">
+
+</div>
+<p>We know that if we estimate the <span class="math inline">\beta</span> with OLS, the estimator will have the following variance:</p>
+<p><span class="math display">Var\left(  \widehat{\beta}_{OLS}\right)    =\sigma_{\varepsilon}^{2}\cdot\left(X^{\prime}X\right)  ^{-1}</span></p>
+<p>when the errors <span class="math inline">\varepsilon_{i,t}</span> are i.i.d.</p>
+<div style="height: 1em;">
+
+</div>
+<h4 id="problem-4">Problem</h4>
+<p>But what happens if errors are correlated within each firm <span class="math inline">i</span> or time period <span class="math inline">t</span>?</p>
+</section>
+<section id="clustered-standard-errors-1" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 2em;">
+
+</div>
+<p>Suppose that the data have an unobserved firm effect that is fixed:</p>
+<p><span class="math display">X_{i,t} = \alpha_i + \nu_{i,t}.</span></p>
+<div style="height: 2em;">
+
+</div>
+<p>The residuals can be specified as</p>
+<p><span class="math display">\varepsilon_{i,t} = \gamma_i + \eta_{i,t}.</span></p>
+</section>
+<section id="clustered-standard-errors-2" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 1em;">
+
+</div>
+<p>Both the independent variable and the residual are correlated across observations of the same firm, but are independent across firms:</p>
+<p><span class="math display">
+\begin{aligned}
+corr(X_{i,t}, X_{j,s}) &amp;= 1 \text{ for } i=j \text{ and } t=s\\
+&amp;= \rho_{X} = \sigma^2_{\alpha} / \sigma^2_X \text{ for } i=j \text{ and all } t\neq s\\
+&amp;= 0 \text{ for all } i\neq j
+\end{aligned}
+</span></p>
+<p><span class="math display">
+\begin{aligned}
+corr(\varepsilon_{i,t}, \varepsilon_{j,s}) &amp;= 1 \text{ for } i=j \text{ and } t=s\\
+&amp;= \rho_{\varepsilon} = \sigma^2_{\gamma} / \sigma^2_{\varepsilon} \text{ for } i=j \text{ and all } t\neq s\\
+&amp;= 0 \text{ for all } i\neq j.
+\end{aligned}
+</span></p>
+<p>Then the variance of <span class="math inline">\widehat{\beta}</span> is</p>
+<p><span class="math display">Var\left(  \widehat{\beta}\right) = \frac{\sigma^2_{\varepsilon}}{\sigma^2_{X} NT} (1+(T-1)\rho_X \rho_{\varepsilon}).</span></p>
+</section>
+<section id="clustered-standard-errors-3" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 1em;">
+
+</div>
+<p>The exact formula for the clustered standard error is:</p>
+<p><span class="math display">Var\left(  \widehat{\beta}_{firm}\right) = \frac{N(NT-1)\sum_{i=1}^N\left(\sum_{t=1}^T X_{i,t}\varepsilon_{i,t}\right)^2}{(NT-k)(N-1)\left(\sum_{i=1}^N\sum_{t=1}^T X_{i,t}^2\right)^2}.</span></p>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Since the autocorrelations can be positive or negative, it is possible for the OLS standard error to under- or overestimate the true standard error.</li>
+<li>The correlation of the residuals within a cluster is the problem the clustered standard errors are designed to correct.</li>
+<li>This correlation can be of any form; no parametric structure is assumed. However, the squared sum of <span class="math inline">X_{i,t}\varepsilon_{i,t}</span> is assumed to have the same distribution across the clusters.</li>
+</ul>
+</section>
+<section id="standard-errors-clustered-by-firm" class="slide level2">
+<h2>Standard Errors Clustered by Firm</h2>
+<div style="height: 2em;">
+
+</div>
+<table class="table-striped table-sm table-hover small caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 1</strong></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 2</strong></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 3</strong></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Firm 1</strong></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{12}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{13}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{11}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{13}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{11}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{12}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}^2</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Firm 2</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{22}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{23}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{21}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{23}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{21}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{22}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}^2</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Firm 3</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{32}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{33}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{31}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{33}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{31}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{32}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}^2</span></td>
+</tr>
+</tbody>
+</table>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="petersen2008estimating">Petersen (<a href="#/further-reading" role="doc-biblioref" onclick="">2008</a>)</span></p>
+</div></aside></section>
+<section id="clustered-standard-errors-4" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 1em;">
+
+</div>
+<p>The same principle applies for time effects:</p>
+<p><span class="math display">
+\begin{aligned}
+X_{i,t} &amp;= \zeta_t + \nu_{i,t}\\
+\varepsilon_{i,t} &amp;= \delta_t + \eta_{i,t}
+\end{aligned}
+</span></p>
+<div style="height: 2em;">
+
+</div>
+<p><span class="math inline">\Rightarrow Var\left(  \widehat{\beta}_{time}\right)</span> is the same as for errors clustered by firm, we only need to swap <span class="math inline">T</span> and <span class="math inline">N</span>.</p>
+</section>
+<section id="clustered-standard-errors-5" class="slide level2">
+<h2>Clustered Standard Errors</h2>
+<div style="height: 1em;">
+
+</div>
+<p>What if there are both firm and time fixed effects?</p>
+<p><span class="math display">
+\begin{aligned}
+X_{i,t} &amp;= \alpha_i +\zeta_t + \nu_{i,t}\\
+\varepsilon_{i,t} &amp;= \gamma_i +\delta_t + \eta_{i,t}
+\end{aligned}
+</span></p>
+<div style="height: 2em;">
+
+</div>
+<p><span class="math inline">\Rightarrow Var\left(  \widehat{\beta}_{firm\&amp;time}\right) = Var\left(  \widehat{\beta}_{firm}\right) + Var\left(  \widehat{\beta}_{time}\right) - Var\left(  \widehat{\beta}_{HC}\right)</span></p>
+<p>where <span class="math inline">Var\left(  \widehat{\beta}_{HC}\right)</span> are the White standard errors.</p>
+</section>
+<section id="standard-errors-clustered-by-firm-and-time" class="slide level2">
+<h2>Standard Errors Clustered by Firm and Time</h2>
+<div style="height: 2em;">
+
+</div>
+<table class="table-striped table-sm table-hover small caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 1</strong></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 2</strong></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Firm 3</strong></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Firm 1</strong></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{12}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{13}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{21}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{11}\epsilon_{31}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{11}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{13}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{22}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{12}\epsilon_{32}</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{11}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{12}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}^2</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{23}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{13}\epsilon_{33}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Firm 2</strong></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{11}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{22}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{23}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{21}\epsilon_{31}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{12}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{21}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{23}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{22}\epsilon_{32}</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{13}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{21}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{22}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}^2</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{23}\epsilon_{33}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Firm 3</strong></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{11}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{21}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{32}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{31}\epsilon_{33}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{12}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{22}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{31}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}^2</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{32}\epsilon_{33}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{13}</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{23}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{31}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}\epsilon_{32}</span></td>
+<td style="text-align: center;"><span class="math inline">\epsilon_{33}^2</span></td>
+</tr>
+</tbody>
+</table>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="petersen2008estimating">Petersen (<a href="#/further-reading" role="doc-biblioref" onclick="">2008</a>)</span></p>
+</div></aside></section>
+<section id="further-reading" class="slide level2 smaller scrollable">
+<h2>Further Reading</h2>
+<p>Optional: The rest of <span class="citation" data-cites="baltagi_econometrics_2022">Baltagi (<a href="#/further-reading" role="doc-biblioref" onclick="">2022</a>)</span> chap 12 tackles increasingly sophisticated topics:</p>
+<ul>
+<li>Random effects (12.2.2)</li>
+<li>Testing pooled model (12.5)</li>
+<li>Dynamic panel data models (12.6)</li>
+<li>Difference-in-differences estimator (12.7)</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<h3 id="references">References</h3>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-baltagi_econometrics_2022" class="csl-entry" role="listitem">
+Baltagi, Badi H. 2022. <em>Econometrics</em>. 6th ed. Classroom Companion: Economics. Springer Cham. <a href="https://doi.org/10.1007/978-3-030-80149-6">https://doi.org/10.1007/978-3-030-80149-6</a>.
+</div>
+<div id="ref-petersen2008estimating" class="csl-entry" role="listitem">
+Petersen, Mitchell A. 2008. <span>“Estimating Standard Errors in Finance Panel Data Sets: Comparing Approaches.”</span> <em>The Review of Financial Studies</em> 22 (1): 435–80.
+</div>
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logos/logo_hec_montreal_bleu_web.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>MATH60207</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture08_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture08_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture08_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture08_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false,"theme":"whiteboard"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
