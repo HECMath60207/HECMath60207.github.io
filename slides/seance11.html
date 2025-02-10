@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="seance11_files/libs/clipboard/clipboard.min.js"></script>
+<script src="seance11_files/libs/quarto-html/tabby.min.js"></script>
+<script src="seance11_files/libs/quarto-html/popper.min.js"></script>
+<script src="seance11_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="seance11_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="seance11_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="seance11_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="seance11_files/libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="seance11_files/libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Vincent Grégoire">
+  <meta name="author" content="Saad Ali Khan">
+  <title>MATH60207 - Séance 11</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="seance11_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="seance11_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="seance11_files/libs/revealjs/dist/theme/quarto-c87e1ac64da212655adbce24386e8be8.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="seance11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="seance11_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="seance11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="seance11_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="seance11_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="seance11_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">MATH60207 - Séance 11</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincent Grégoire 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:vincent.gregoire@hec.ca">vincent.gregoire@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Saad Ali Khan 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:saad-ali.khan@hec.ca">saad-ali.khan@hec.ca</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HEC Montréal
+          </p>
+    </div>
+</div>
+
+</section>
+<section class="slide level2">
+
+<!-- LTeX: language=fr -->
+</section>
+<section id="plan-pour-aujourdhui" class="slide level2">
+<h2>Plan pour aujourd’hui</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Travail d’équipe</li>
+<li>Collaboration: Git et GitHub</li>
+<li>Introduction à l’apprentissage automatique</li>
+<li>Introduction à l’analyse de texte</li>
+<li>Et ensuite ?</li>
+</ul>
+</section>
+<section id="devoir-en-équipe" class="slide level2">
+<h2>Devoir en équipe</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Équipes de 1, 2 ou 3 (pas de matchmaking)</li>
+<li>Rapport final sous forme de Jupyter Notebook
+<ul>
+<li>Le code peut être un mélange de script Python (<code>.py</code>) et de notebook Jupyter</li>
+</ul></li>
+<li>Sur GitHub Classroom
+<ul>
+<li>Pas de correction automatisée (pas de tests)</li>
+</ul></li>
+</ul>
+</section>
+<section id="git-github-lecture-1" class="slide level2">
+<h2>git / GitHub : Lecture 1</h2>
+<div style="height: 2em;">
+
+</div>
+<h3 id="git"><a href="https://git-scm.com/">git</a></h3>
+<div style="height: 1em;">
+
+</div>
+<h3 id="git-1"><i class="fa-brands fa-git-alt" aria-label="git-alt"></i> <a href="https://git-scm.com/">git</a></h3>
+<ul>
+<li>Système de <em>contrôle de version distribué</em> gratuit et open source.</li>
+<li>Contrôle de version, pensez à “suivre les modifications” de votre code, en mieux</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<h3 id="github"><a href="https://github.com/">GitHub</a></h3>
+<div style="height: 1em;">
+
+</div>
+<h3 id="github-1"><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/">GitHub</a></h3>
+<ul>
+<li>Une solution hébergée pour git, plus, détenue par Microsoft.</li>
+</ul>
+</section>
+<section id="git-lecture-11" class="slide level2">
+<h2>git : Lecture 11</h2>
+<div style="height: 2em;">
+
+</div>
+<h3 id="git-2"><a href="https://git-scm.com/">git</a></h3>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Système de <em>contrôle de version distribué</em> gratuit et open source.</li>
+<li>Contrôle de version, pensez à “suivre les modifications” de votre code, en mieux</li>
+<li><strong>Permet de garder une trace de plusieurs <em>versions de travail</em> de votre code.</strong></li>
+<li><strong>Permet à plusieurs personnes de collaborer sur le code.</strong></li>
+</ul>
+</section>
+<section id="git-github-lecture-11" class="slide level2">
+<h2>git / GitHub : Lecture 11</h2>
+<div style="height: 2em;">
+
+</div>
+<h3 id="github-2"><a href="https://github.com/">GitHub</a></h3>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Une solution hébergée pour git, plus, détenue par Microsoft.</li>
+<li><strong>Fournit une belle interface pour les fonctionnalités de git.</strong></li>
+<li><strong>Fournit un bel ensemble de fonctionnalités pour la collaboration open-source.</strong></li>
+<li><strong>++ beaucoup plus.</strong></li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<h3 id="comment-en-savoir-plus-sur-gh">Comment en savoir plus sur GH ?</h3>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><a href="https://vincent.codes.finance/posts/github-for-research/">Utiliser GitHub pour la recherche académique</a></li>
+</ul>
+</section>
+<section id="gitgithub-et-jupyter-notebooks" class="slide level2">
+<h2>git/GitHub et Jupyter Notebooks</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>git fonctionne très bien avec les fichiers texte (c’est-à-dire le code Python, Markdown, etc.)</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><p>Les Jupyter Notebooks ont beaucoup de métadonnées qui les rendent difficiles à gérer pour :</p>
+<ol type="1">
+<li><code>diff</code> (regarder les différences)</li>
+<li><code>merge</code> fusion/résolution des conflits (décider quelles différences conserver)</li>
+</ol></li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Outils Git intégrés dans VS Code</a> fonctionnent bien avec <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_custom-notebook-diffing">les Jupyter notebooks</a>
+<ul>
+<li>Cependant, faites attention aux conflits, ils peuvent être plus difficiles à gérer dans les Notebooks.</li>
+</ul></li>
+</ul>
+</section>
+<section id="quest-ce-que-lapprentissage-automatique" class="slide level2">
+<h2>Qu’est-ce que l’apprentissage automatique ?</h2>
+<div style="height: 2em;">
+
+</div>
+<p>L’apprentissage automatique est une application de l’intelligence artificielle (IA) qui offre aux systèmes la capacité d’apprendre et de s’améliorer automatiquement à partir de l’expérience sans être explicitement programmés. L’apprentissage automatique se concentre sur le développement de programmes informatiques qui peuvent accéder aux données et les utiliser pour apprendre par eux-mêmes.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="approches-de-lapprentissage-automatique">Approches de l’apprentissage automatique</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Apprentissage supervisé : L’ordinateur est présenté avec exemple entrées et leurs sorties souhaitées (pensez OLS).</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Apprentissage non supervisé : Aucune étiquette n’est donnée à l’apprentissage algorithme, le laissant seul pour trouver une structure dans son entrée.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li>Apprentissage par renforcement : Un programme informatique interagit avec un environnement dynamique dans lequel il doit atteindre un certain objectif. Comme il navigue dans son espace de problèmes, le programme reçoit une rétroaction c’est analogue aux récompenses, qu’il essaie de maximiser.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="pourquoi-lapprentissage-automatique">Pourquoi l’apprentissage automatique</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>L’apprentissage automatique est bon pour prévoir ou extraire des modèles (non linéaires) à partir des données.</li>
+</ul>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>L’apprentissage automatique n’est <strong>pas</strong> bon pour l’inférence statistique.</li>
+</ul>
+</section>
+<section id="les-outils-de-lapprentissage-automatique" class="slide level2">
+<h2>Les outils de l’apprentissage automatique</h2>
+<div style="height: 1em;">
+
+</div>
+<p><a href="https://scikit-learn.org/stable/index.html">scikit-learn</a> Un puissant package qui a des implémentations pour la plupart des algorithmes d’apprentissage automatique courants (<em>sauf</em> l’apprentissage profond) et de nombreuses fonctions utilitaires pour aider dans le processus.</p>
+<div style="height: 1em;">
+
+</div>
+<h3 id="bibliothèques-dapprentissage-profond">Bibliothèques d’apprentissage profond</h3>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li><a href="https://pytorch.org/">PyTorch</a> (Facebook)</li>
+<li><a href="https://keras.io/">Keras</a> (basé sur <a href="https://www.tensorflow.org/">TensorFlow</a>, Google)</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<h3 id="utiliser-des-modèles-récents-en-python">Utiliser des modèles récents en Python</h3>
+<div style="height: 0.5em;">
+
+</div>
+<ul>
+<li><a href="https://huggingface.co/">Hugging Face</a></li>
+<li><a href="https://openai.com/">OpenAI Python API</a></li>
+<li><a href="https://github.com/ollama/ollama-python">Ollama Python Library</a></li>
+<li><a href="https://python.langchain.com/docs/get_started/introduction">Langchain</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="types-de-tâches-ml">Types de tâches ML</h3>
+<div style="height: 2em;">
+
+</div>
+<p>Les tâches de ML courantes peuvent être divisées en quatre groupes :</p>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><strong>Classification</strong> : Identifier à quelle catégorie appartient une observation.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><strong>Régression</strong> : Prédire une valeur continue.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><strong>Clustering</strong> : Groupement automatique d’observations.</li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<ul>
+<li><strong>Réduction de dimensionnalité</strong> : réduire le nombre de variables explicatives.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="un-peu-de-vocabulaire">Un peu de vocabulaire</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>entraînement : estimation des paramètres et hyperparamètres du modèle</li>
+<li>hyperparamètres : paramètres qui vont au-delà des poids des modèles (i.e.&nbsp;profondeur d’un arbre de décision)</li>
+<li>réglage des hyperparamètres (<em>tuning</em>) : choisir les meilleurs</li>
+<li>recherche sur grille (<em>grid search</em>) : essayer toutes les valeurs possibles sur une grille</li>
+<li>prétraitement : toutes les étapes de préparation des données (normalisation, etc.)</li>
+<li>score : fonction objective (i.e.&nbsp;MSE, <span class="math inline">R^2</span>)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="estimer-un-modèle">Estimer un modèle</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Divisez l’échantillon en trois groupes : apprentissage, validation et test :
+<ul>
+<li>Mettez le jeu de test de côté jusqu’à la fin</li>
+<li>Réglez les hyperparamètres :
+<ol type="1">
+<li>Estimez le modèle sur le jeu d’apprentissage</li>
+<li>Validez la performance OOS sur le jeu de validation.</li>
+<li>Optimisez les paramètres en répétant cette étape.</li>
+</ol></li>
+<li>Alternative : validation croisée (mélanger apprentissage et validation)</li>
+<li>Une fois satisfait, évaluez la vraie performance OOS sur le jeu de test.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="estimer-un-modèle-de-séries-temporelles">Estimer un modèle de séries temporelles</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>En finance, nous nous soucions des propriétés des séries temporelles ;
+<ul>
+<li>L’optimisation peut être effectuée en utilisant des fenêtres roulantes.</li>
+<li>Il est important que le jeu de test soit toujours hors échantillon.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="modèles-de-régression-courants">Modèles de régression courants</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Modèles linéaires (OLS, LASSO, Ridge, ElasticNet) :
+<ul>
+<li><span class="math inline">{\hat {\beta }}\equiv {\underset {\beta }{\operatorname {argmin} }}(\|y-X\beta \|^{2}+\underbrace{\lambda_{2}\|\beta \|^{2}}_{\text{Ridge}}+\underbrace{\lambda_{1}\|\beta \|_{1}}_{\text{LASSO}})</span></li>
+<li>Comprend également la régression logistique, la régression par quantiles, + beaucoup plus.</li>
+</ul></li>
+<li>Machines à vecteurs de support (SVM): trouve les vecteurs (projections, peuvent être non linéaires) qui contiennent le plus de points de l’échantillon.</li>
+<li>Arbres de décision : chaque branche est basée sur une décision binaire (i.e.&nbsp;<span class="math inline">x_1 &gt; 0.04</span>)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="méthodes-densemble">Méthodes d’ensemble</h3>
+<div style="height: 2em;">
+
+</div>
+<p>Nous voulons souvent combiner plus d’un modèle :</p>
+<ul>
+<li>Si les erreurs ne sont pas parfaitement corrélées et que les modèles ne sont pas biaisés.</li>
+<li>C’est la diversification !</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="normalisation">Normalisation</h3>
+<div style="height: 2em;">
+
+</div>
+<p>Rappelez-vous, nous nous soucions uniquement de prédire <span class="math inline">y</span>, pas d’inférence, donc il est courant de normaliser le <span class="math inline">X</span> et <span class="math inline">y</span> avant d’estimer le modèle pour améliorer les performances numériques.</p>
+<ul>
+<li>Quelle que soit la transformation effectuée, elle doit être fixée avec le jeu d’apprentissage et la même transformation doit être appliquée aux observations hors échantillon.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="livre">Livre</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ml_book.jpg" class="quarto-figure quarto-figure-center" height="500"></p>
+</figure>
+</div>
+<p><a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9781098125967/">Version en ligne disponible via la bibliothèque.</a></p>
+</section>
+<section class="slide level2">
+
+<h3 id="quest-ce-que-lanalyse-de-texte">Qu’est-ce que l’analyse de texte ?</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>L’analyse de texte, également appelée extraction de texte ou exploration de données textuelles, est le processus d’extraction d’informations de haute qualité à partir de texte.</li>
+<li>L’analyse de texte implique la récupération d’informations, l’analyse lexicale pour étudier les distributions de fréquence des mots, la reconnaissance de motifs, le balisage/l’annotation, l’extraction d’informations, des techniques d’exploration de données y compris l’analyse des liens et des associations, la visualisation, et l’analytique prédictive.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="quest-ce-que-lanalyse-de-texte-suite">Qu’est-ce que l’analyse de texte ? (suite)</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>L’objectif global est essentiellement de transformer le texte en données pour analyse, grâce à l’application du traitement du langage naturel (NLP), différents types d’algorithmes et de méthodes analytiques. Une phase importante de ce processus est l’interprétation des informations recueillies.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="pourquoi-lanalyse-de-texte">Pourquoi l’analyse de texte</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Une quantité considérable d’informations précieuses est disponible au format texte, mais pas nécessairement dans un format structuré.</li>
+<li>Les ensembles de données bien scrutcturés, tels que CRSP, Compustat, etc. ont été largement étudiés, donc la barre est haute pour répondre à des questions importantes en utilisant seulement ceux-ci.</li>
+<li>Des questions intéressantes peuvent être répondues par ceux qui parviennent à trouver les bonnes données.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="les-outils-de-lanalyse-de-texte">Les outils de l’analyse de texte</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li><a href="https://www.nltk.org/">NLTK</a> : Natural Language Toolkit. Puissante bibliothèque mettant en œuvre de nombreuses méthodes pour l’analyse de texte.</li>
+<li><a href="https://textblob.readthedocs.io/en/dev/">textblob</a> : Package plus simple avec une interface plus facile à utiliser, construit sur NLTK et patterne.</li>
+<li><a href="https://huggingface.co/docs/transformers/index">Transformers</a> : fournit des milliers de modèles pré-entraînés pour effectuer des tâches sur différentes modalités telles que le texte, la vision et l’audio.</li>
+<li><a href="https://spacy.io/">spaCy</a> : bibliothèque pour créer des pipelines NLP.</li>
+<li>Voir également OpenAI, Ollama, Langchain listés plus tôt.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="références">Références</h3>
+<div style="height: 2em;">
+
+</div>
+<p>Pour une introduction à l’analyse de texte en finance/économie, voir :</p>
+<ul>
+<li>“Text as Data” <span class="citation" data-cites="gentzkow2019text">Gentzkow, Kelly, and Taddy (<a href="#/références-1" role="doc-biblioref" onclick="">2019</a>)</span></li>
+</ul>
+<div style="height: 1em;">
+
+</div>
+<p>Pour une analyse de texte plus avancée, voir :</p>
+<ul>
+<li><a href="https://learning.oreilly.com/library/view/applied-text-analysis/9781491963036/">Applied Text Analysis with Python</a> : O’Reilly, gratuit via la bibliothèque.</li>
+<li><a href="https://www.nltk.org/book/">https://www.nltk.org/book/</a> : La version en ligne de la première édition est le livre disponible via la bibliothèque, mais vous feriez mieux d’utiliser cette version web à jour.</li>
+</ul>
+</section>
+<section id="comment-se-développer" class="slide level2">
+<h2>Comment se développer ?</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Parcourez Youtube :
+<ul>
+<li><a href="https://www.youtube.com/c/ArjanCodes">ArjanCodes</a></li>
+<li><a href="https://www.youtube.com/@Indently">Indently</a></li>
+<li><a href="https://www.youtube.com/c/PythonEngineer">Python Engineer</a></li>
+<li><a href="https://www.youtube.com/channel/UCq6XkhO5SZ66N04IcPbqNcw">Keith Galli</a></li>
+<li><a href="https://www.youtube.com/@robmulla">Rob Mulla</a></li>
+<li><a href="https://www.youtube.com/@VincentCodesFinance">Vincent Codes Finance 🚀</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="comment-se-développer-2" class="slide level2">
+<h2>Comment se développer ? (2)</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Codez, codez, codez</li>
+<li>Revenir à Excel ?</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/64nble.jpg" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+</section>
+<section id="excel-avec-python" class="slide level2">
+<h2>Excel avec Python</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li><p>Vous pouvez lire et écrire des fichiers Excel avec pandas.</p></li>
+<li><p>Vous pouvez également <strong>utiliser</strong> Excel avec Python :</p>
+<ul>
+<li><a href="https://www.xlwings.org/">xlwings</a> : Contrôlez Excel avec Python</li>
+<li><a href="https://www.pyxll.com/">PyXLL</a> : Écrivez des add-ins Excel en Python. ($$$)</li>
+</ul></li>
+<li><p>Livre (O’Reilly) : <a href="https://learning.oreilly.com/library/view/python-for-excel/9781492080992/">Python for Excel</a></p></li>
+<li><p><a href="https://support.microsoft.com/en-us/office/introduction-to-python-in-excel-55643c2e-ff56-4168-b1ce-9428c8308545">Python officiellement dans Excel</a></p></li>
+</ul>
+</section>
+<section id="podcasts" class="slide level2">
+<h2>Podcasts</h2>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li><a href="https://rationalreminder.ca/">RationalReminder</a></li>
+<li><a href="https://www.gsb.stanford.edu/business-podcasts/all-else-equal-making-better-decisions">All Else Equal: Making Better Decisions</a></li>
+<li><a href="https://www.bloomberg.com/oddlots-podcast">Odd Lots</a></li>
+<li><a href="https://realpython.com/podcasts/rpp/">The Real Python Podcast</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="pour-le-prochain-cours">Pour le prochain cours</h3>
+<div style="height: 2em;">
+
+</div>
+<ul>
+<li>Lire l’article</li>
+</ul>
+</section>
+<section id="références-1" class="slide level2 smaller scrollable">
+<h2>Références</h2>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gentzkow2019text" class="csl-entry" role="listitem">
+Gentzkow, Matthew, Bryan Kelly, and Matt Taddy. 2019. <span>“Text as Data.”</span> <em>Journal of Economic Literature</em> 57 (3): 535–74.
+</div>
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logos/logo_hec_montreal_bleu_web.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>MATH60207</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="seance11_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="seance11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="seance11_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="seance11_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false,"theme":"whiteboard"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
